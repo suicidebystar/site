@@ -1,10 +1,10 @@
-import React from 'react';
-import { Layout }  from "../components"
+import React from "react";
+import { Layout } from "../components";
 
 const AboutPage = () => (
-    <Layout>
-      <p>About SBS</p>
-    </Layout>
-  );
+  <Layout>
+    <p>About SBS</p>
+  </Layout>
+);
 
-export default AboutPage
+export default AboutPage;

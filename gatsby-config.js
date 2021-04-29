@@ -1,7 +1,9 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   siteMetadata: {
     title: "SuicideByStar",
   },
+
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
