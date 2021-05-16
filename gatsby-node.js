@@ -9,24 +9,44 @@ exports.createPages = async ({ graphql, actions }) => {
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
   const result = await graphql(`
     query {
-      allMdx {
+      posts: allMdx {
         edges {
           node {
             slug
           }
         }
       }
+      categories: allMdx(limit: 2000) {
+        group(field: frontmatter___category) {
+          fieldValue
+        }
+      }
     }
   `);
 
-  result.data.allMdx.edges.forEach(({ node }) => {
+  result.data.posts.edges.forEach(({ node }) => {
     createPage({
       path: node.slug,
-      component: path.resolve(`./src/templates/Post.tsx`),
+      component: path.resolve(`./src/templates/Post.jsx`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: node.slug,
+        category: node.category,
+      },
+    });
+  });
+
+  result.data.categories.group.forEach((category) => {
+    // TODO: path should be sanitized in some way
+    console.log(category);
+    createPage({
+      path: `category/${category.fieldValue}`,
+      component: path.resolve(`./src/templates/Category.jsx`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        category: category.fieldValue,
       },
     });
   });
