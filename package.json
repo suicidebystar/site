@@ -15,7 +15,8 @@
     "clean": "gatsby clean",
     "lint": "eslint ./",
     "lint-fix": "eslint ./ --fix",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "test": "echo Pending tests"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
