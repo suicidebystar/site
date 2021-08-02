@@ -13,6 +13,10 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
+            frontmatter {
+              category
+              path
+            }
           }
         }
       }
@@ -25,14 +29,15 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   result.data.posts.edges.forEach(({ node }) => {
+    const slug = node.frontmatter.path;
     createPage({
-      path: node.slug,
+      path: slug,
       component: path.resolve(`./src/templates/Post.jsx`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: node.slug,
-        category: node.category,
+        slug: slug,
+        category: node.frontmatter.category,
       },
     });
   });

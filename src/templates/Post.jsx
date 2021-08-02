@@ -29,7 +29,7 @@ export default function Post({ data }) {
 
 export const query = graphql`
   query($slug: String!) {
-    mdx(slug: { eq: $slug }) {
+    mdx(frontmatter: { path: { eq: $slug } }) {
       body
       frontmatter {
         title
