@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, PostCard } from "../components";
+import { Layout, FeaturedPostCard, PostCard } from "../components";
 import { graphql } from "gatsby";
 
 function transformEdgeToPost(edge) {
@@ -15,7 +15,6 @@ function transformEdgeToPost(edge) {
 }
 
 const IndexPage = ({ data }) => {
-  console.log({ data });
   const morePosts = data.morePosts.edges.map(transformEdgeToPost);
 
   const lastPost = transformEdgeToPost(data.lastPost.edges.pop());
@@ -25,7 +24,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <h2>Last post</h2>
-      <PostCard post={lastPost} />
+      <FeaturedPostCard post={lastPost} />
 
       <h2>More posts</h2>
       {morePosts.map((post) => (
