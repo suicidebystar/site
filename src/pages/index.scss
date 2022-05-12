@@ -1,0 +1,53 @@
+@import "./../styles/vars.scss";
+@import "./../styles/mixins.scss";
+
+.home {
+  display: grid;
+
+  grid-template-areas:
+    "featured"
+    "posts"
+    "monographs"
+    "sessions"
+    "subscribe"
+    "social"
+    "shop";
+
+  @include lg {
+    grid-template-columns: 1fr 1fr 200px;
+
+    grid-template-areas:
+      "featured featured featured"
+      "posts posts subscribe"
+      "monographs sessions social"
+      "shop shop shop";
+  }
+
+  &__featured {
+    grid-area: featured;
+  }
+
+  &__posts {
+    grid-area: posts;
+  }
+
+  &__monographs {
+    grid-area: monographs;
+  }
+
+  &__sessions {
+    grid-area: sessions;
+  }
+
+  &__subscribe {
+    grid-area: subscribe;
+  }
+
+  &__social {
+    grid-area: social;
+  }
+
+  &__shop {
+    grid-area: shop;
+  }
+}

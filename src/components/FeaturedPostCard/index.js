@@ -1,1 +1,1 @@
-export * from "./MainPostCard";
+export * from "./FeaturedPostCard";

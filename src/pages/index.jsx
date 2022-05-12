@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, FeaturedPostCard, PostCard } from "../components";
 import { graphql } from "gatsby";
+import "./index.scss";
 
 function transformEdgeToPost(edge) {
   if (!edge) {
@@ -23,17 +24,33 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <h2>Last post</h2>
-      <FeaturedPostCard post={lastPost} />
-
-      <h2>More posts</h2>
-      {morePosts.map((post) => (
-        <PostCard post={post} key={post.slug} />
-      ))}
-      <h2>Monographs</h2>
-      <PostCard post={lastMonograph} />
-      <h2>Sessions</h2>
-      <PostCard post={lastSession} />
+      <div className="home">
+        <section className="home__featured">
+          <h2>Last post</h2>
+          <FeaturedPostCard post={lastPost} />
+        </section>
+        <section className="home__posts">
+          <h2>More posts</h2>
+          {morePosts.map((post) => (
+            <PostCard post={post} key={post.slug} />
+          ))}
+        </section>
+        <section className="home__monographs">
+          <h2>Monographs</h2>
+          <PostCard post={lastMonograph} />
+        </section>
+        <section className="home__sessions">
+          <h2>Sessions</h2>
+          <PostCard post={lastSession} />
+        </section>
+        <section className="home__subscribe">
+          <strong>Subscríbete</strong>
+        </section>
+        <section className="home__social">
+          <strong>Síguenos</strong>
+          <strong>Tienda</strong>
+        </section>
+      </div>
     </Layout>
   );
 };

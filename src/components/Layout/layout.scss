@@ -1,0 +1,10 @@
+@import "./../../styles/vars.scss";
+@import "./../../styles/mixins.scss";
+
+.container {
+  min-width: 100vw;
+
+  @include lg {
+    min-width: 960px;
+  }
+}
