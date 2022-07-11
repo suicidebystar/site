@@ -1,0 +1,60 @@
+@import "./../../styles/mixins.scss";
+
+.featured-post {
+  display: grid;
+  grid-template-areas: "stack";
+  text-decoration: none;
+  color: white;
+
+  > * {
+    grid-area: stack;
+  }
+
+  &__image {
+    z-index: -1;
+    &::before {
+      content: "";
+      z-index: 1;
+      background: linear-gradient(to bottom, transparent 0%, black 100%);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    place-self: end stretch;
+    padding: var(--space-xxs);
+    text-align: center;
+
+    @include sm {
+      padding: var(--space-sm);
+    }
+  }
+
+  &__title {
+    color: white;
+  }
+
+  &__program {
+    display: none;
+    place-self: start end;
+    padding: var(--space-sm);
+    background-color: black;
+
+    @include sm {
+      display: block;
+    }
+  }
+
+  &__player {
+    margin: var(--space-sm) 0px;
+    display: inline;
+    width: 95%;
+
+    @include sm {
+      width: 80%;
+      margin-top: var(--space-sm);
+    }
+  }
+}

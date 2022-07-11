@@ -26,7 +26,6 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div className="home">
         <section className="home__featured">
-          <h2>Last post</h2>
           <FeaturedPostCard post={lastPost} />
         </section>
         <section className="home__posts">
@@ -71,9 +70,10 @@ export const pageQuery = graphql`
             path
             category
             ivoox
+            audio
             featuredImage {
               childImageSharp {
-                gatsbyImageData(width: 200)
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
             programNumber
