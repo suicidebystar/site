@@ -7,7 +7,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 export function FeaturedPostCard({ post, showAudio = false }) {
   const { featuredImage, path, title, audio } = post;
   const image = getImage(featuredImage);
-  console.log(audio);
 
   return (
     <>

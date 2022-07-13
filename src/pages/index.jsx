@@ -1,5 +1,10 @@
 import React from "react";
-import { Layout, FeaturedPostCard, PostList, PostCard } from "../components";
+import {
+  Layout,
+  FeaturedPostCard,
+  PostList,
+  SubscriptionWidget,
+} from "../components";
 import { graphql } from "gatsby";
 import "./index.scss";
 
@@ -40,7 +45,7 @@ const IndexPage = ({ data }) => {
           <FeaturedPostCard post={lastSession} />
         </section>
         <section className="home__subscribe">
-          <strong>Subscríbete</strong>
+          <SubscriptionWidget />
         </section>
         <section className="home__social">
           <strong>Síguenos</strong>

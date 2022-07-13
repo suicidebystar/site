@@ -13,7 +13,6 @@ export default function PostTemplate({
     };
   });
 
-  console.log(data);
   return (
     <Layout>
       <h2>All posts</h2>

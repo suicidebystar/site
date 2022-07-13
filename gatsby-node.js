@@ -44,7 +44,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.categories.group.forEach((category) => {
     // TODO: path should be sanitized in some way
-    console.log(category);
     createPage({
       path: `category/${category.fieldValue}`,
       component: path.resolve(`./src/templates/Category.jsx`),
