@@ -4,7 +4,7 @@ import { getProgramName } from "../../utils";
 import "./FeaturedPostCard.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-export function FeaturedPostCard({ post }) {
+export function FeaturedPostCard({ post, showAudio = false }) {
   const { featuredImage, path, title, audio } = post;
   const image = getImage(featuredImage);
   console.log(audio);
@@ -20,14 +20,16 @@ export function FeaturedPostCard({ post }) {
         <section className="featured-post__content">
           <h2 className="featured-post__title">{title}</h2>
           {/* TODO: Customise this and move this to its own component */}
-          <audio
-            controls="controls"
-            preload="metadata"
-            className="featured-post__player"
-          >
-            <source src={audio} type="audio/mpeg" />
-            Your browser does not support the audio element.
-          </audio>
+          {showAudio && (
+            <audio
+              controls="controls"
+              preload="metadata"
+              className="featured-post__player"
+            >
+              <source src={audio} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          )}
         </section>
         <span className="featured-post__program">{getProgramName(post)}</span>
       </Link>

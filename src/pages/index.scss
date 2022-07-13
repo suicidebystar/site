@@ -12,6 +12,9 @@
     "social"
     "shop";
 
+  column-gap: var(--space-md);
+  row-gap: var(--space-md);
+
   @include lg {
     grid-template-columns: 1fr 1fr 200px;
 

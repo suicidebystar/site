@@ -1,0 +1,13 @@
+@import "./../../styles/mixins.scss";
+
+.post-list {
+  display: grid;
+  --auto-grid-min-size: 20rem;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size), 1fr)
+  );
+  column-gap: var(--space-md);
+  row-gap: var(--space-md);
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, FeaturedPostCard, PostCard } from "../components";
+import { Layout, FeaturedPostCard, PostList, PostCard } from "../components";
 import { graphql } from "gatsby";
 import "./index.scss";
 
@@ -26,21 +26,18 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div className="home">
         <section className="home__featured">
-          <FeaturedPostCard post={lastPost} />
+          <FeaturedPostCard post={lastPost} showAudio={true} />
         </section>
         <section className="home__posts">
-          <h2>More posts</h2>
-          {morePosts.map((post) => (
-            <PostCard post={post} key={post.slug} />
-          ))}
+          <PostList posts={morePosts} />
         </section>
         <section className="home__monographs">
           <h2>Monographs</h2>
-          <PostCard post={lastMonograph} />
+          <FeaturedPostCard post={lastMonograph} />
         </section>
         <section className="home__sessions">
           <h2>Sessions</h2>
-          <PostCard post={lastSession} />
+          <FeaturedPostCard post={lastSession} />
         </section>
         <section className="home__subscribe">
           <strong>Subscríbete</strong>
@@ -84,7 +81,7 @@ export const pageQuery = graphql`
 
     morePosts: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 4
+      limit: 6
       skip: 1
     ) {
       edges {
@@ -97,7 +94,7 @@ export const pageQuery = graphql`
             ivoox
             featuredImage {
               childImageSharp {
-                gatsbyImageData(width: 200)
+                gatsbyImageData(layout: CONSTRAINED, height: 230)
               }
             }
             programNumber
@@ -121,7 +118,7 @@ export const pageQuery = graphql`
             ivoox
             featuredImage {
               childImageSharp {
-                gatsbyImageData(width: 200)
+                gatsbyImageData(layout: CONSTRAINED, height: 230)
               }
             }
             programNumber
@@ -145,7 +142,7 @@ export const pageQuery = graphql`
             ivoox
             featuredImage {
               childImageSharp {
-                gatsbyImageData(width: 200)
+                gatsbyImageData(layout: CONSTRAINED, height: 230)
               }
             }
             programNumber
