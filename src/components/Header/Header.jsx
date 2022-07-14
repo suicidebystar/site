@@ -6,7 +6,9 @@ export const Header = () => (
   <>
     <nav>
       <Link to="/" className="nav-link active" aria-current="page">
-        SuicideByStar
+        <h1 className="logo">
+          Suicide<span className="logo__accent">By</span>Star
+        </h1>
       </Link>
       <ul>
         <li>
