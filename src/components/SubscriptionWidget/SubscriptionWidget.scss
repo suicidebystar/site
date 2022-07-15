@@ -1,4 +1,20 @@
+@import "./../../styles/mixins.scss";
+
 .subscription-widget {
   display: grid;
-  gap: var(--space-sm);
+  gap: var(--space-md);
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include md {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
