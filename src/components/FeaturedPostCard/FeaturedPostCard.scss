@@ -15,7 +15,7 @@
     &::before {
       content: "";
       z-index: 1;
-      background: linear-gradient(to bottom, transparent 0%, black 100%);
+      background: linear-gradient(to bottom, transparent 0%, black 80%);
       position: absolute;
       height: 100%;
       width: 100%;
@@ -34,6 +34,7 @@
 
   &__title {
     color: white;
+    font-size: var(--text-xxl);
   }
 
   &__program {
@@ -49,12 +50,23 @@
 
   &__player {
     margin: var(--space-sm) 0px;
-    display: inline;
-    width: 95%;
+    width: 80%;
+    margin-top: var(--space-sm);
+    display: none;
 
     @include sm {
-      width: 80%;
-      margin-top: var(--space-sm);
+      display: inline;
+    }
+  }
+
+  &--featured {
+    @include lg {
+      .featured-post__title {
+        font-size: calc(
+          var(--text-xxxl) * var(--text-scale-ratio) * var(--text-scale-ratio)
+        );
+        padding: var(--space-xs);
+      }
     }
   }
 }

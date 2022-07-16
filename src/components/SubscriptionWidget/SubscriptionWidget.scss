@@ -3,7 +3,7 @@
 .subscription-widget {
   display: grid;
   gap: var(--space-md);
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 0.5fr);
   justify-content: center;
 
   @include sm {

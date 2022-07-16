@@ -31,17 +31,17 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div className="home">
         <section className="home__featured">
-          <FeaturedPostCard post={lastPost} showAudio={true} />
+          <FeaturedPostCard post={lastPost} isFeatured={true} />
         </section>
         <section className="home__posts">
           <PostList posts={morePosts} />
         </section>
         <section className="home__monographs">
-          <h2>Monographs</h2>
+          <h2>Monográficos</h2>
           <FeaturedPostCard post={lastMonograph} />
         </section>
         <section className="home__sessions">
-          <h2>Sessions</h2>
+          <h2>Sesiones</h2>
           <FeaturedPostCard post={lastSession} />
         </section>
         <section className="home__subscribe">
