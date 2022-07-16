@@ -37,11 +37,11 @@ const IndexPage = ({ data }) => {
           <PostList posts={morePosts} />
         </section>
         <section className="home__monographs">
-          <h2>Monográficos</h2>
+          <h2 className="home__section-title">Monográficos</h2>
           <FeaturedPostCard post={lastMonograph} />
         </section>
         <section className="home__sessions">
-          <h2>Sesiones</h2>
+          <h2 className="home__section-title">Sesiones</h2>
           <FeaturedPostCard post={lastSession} />
         </section>
         <section className="home__subscribe">
