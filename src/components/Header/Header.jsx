@@ -4,24 +4,31 @@ import "./header.scss";
 
 export const Header = () => (
   <>
-    <nav>
-      <Link to="/" className="nav-link active" aria-current="page">
+    {/* <nav className="header">
+      <Link to="/">
         <h1 className="logo">
           Suicide<span className="logo__accent">By</span>Star
         </h1>
       </Link>
-      <ul>
+      <ul className="header__menu">
         <li>
-          <Link to="/posts" className="nav-link">
+          <Link to="/posts" className="header__link">
             Posts
           </Link>
         </li>
         <li>
-          <Link to="/about" className="nav-link">
+          <Link to="/about" className="header__link">
             About
           </Link>
         </li>
       </ul>
+    </nav> */}
+    <nav className="header header--mobile">
+      <Link to="/">
+        <h1 className="logo">
+          Suicide<span className="logo__accent">By</span>Star
+        </h1>
+      </Link>
     </nav>
   </>
 );

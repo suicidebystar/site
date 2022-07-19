@@ -12,6 +12,7 @@
 
   &__image {
     z-index: -1;
+
     &::before {
       content: "";
       z-index: 1;

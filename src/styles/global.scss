@@ -59,24 +59,3 @@ h3,
 h4 {
   font-family: var(--font-family-secondary), sans-serif;
 }
-
-// TODO: Use vars
-.logo {
-  --text-logo-size: 4em;
-
-  font-family: var(--font-family-secondary), sans-serif;
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase;
-  color: var(--color-text);
-  padding-bottom: var(--space-xxs);
-  font-size: var(--text-logo-size);
-
-  .logo__accent {
-    color: var(--color-primary);
-  }
-}
-
-// TODO: Move this to header styles
-nav > a {
-  text-decoration: none;
-}

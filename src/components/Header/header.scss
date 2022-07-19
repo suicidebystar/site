@@ -1,16 +1,45 @@
 h1 {
   color: red;
 }
-nav {
+.header {
   display: flex;
-  width: 100hw;
   overflow: hidden;
 
-  ul {
+  &__menu {
     list-style: none;
     display: flex;
+    align-items: center;
     li {
-      margin-left: 4px;
+      margin-left: var(--space-md);
     }
   }
+
+  > a {
+    text-decoration: none;
+  }
+}
+
+.header--mobile {
+  .logo {
+    text-align: center;
+  }
+}
+
+.logo {
+  --text-logo-size: 4em;
+
+  font-family: var(--font-family-secondary), sans-serif;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  color: var(--color-text);
+  padding-bottom: var(--space-xxs);
+  font-size: var(--text-logo-size);
+
+  .logo__accent {
+    color: var(--color-primary);
+  }
+}
+
+.header--mobile .logo {
+  font-size: var(--text-xxxl);
 }

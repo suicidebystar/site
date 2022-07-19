@@ -2,12 +2,13 @@
 
 .post-list {
   display: grid;
-  --auto-grid-min-size: 25rem;
+  --auto-grid-min-size: 375px;
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(var(--auto-grid-min-size), 1fr)
-  );
+  grid-template-columns: repeat(1, 1fr);
+
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
   column-gap: var(--space-md);
   row-gap: var(--space-md);
 }

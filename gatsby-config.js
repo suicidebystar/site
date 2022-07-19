@@ -29,6 +29,7 @@ module.exports = {
           quality: 70,
           formats: ["auto", "webp", "avif"],
           placeholder: "blurred",
+          breakpoints: [576, 768, 992, 1200],
         },
       },
     },
