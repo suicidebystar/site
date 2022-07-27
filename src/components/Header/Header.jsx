@@ -25,7 +25,7 @@ export const Header = () => (
     </nav> */}
     <nav className="header header--mobile">
       <Link to="/">
-        <h1 className="logo">
+        <h1 className="logo logo--mobile">
           Suicide<span className="logo__accent">By</span>Star
         </h1>
       </Link>
