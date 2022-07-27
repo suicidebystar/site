@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import "./header.scss";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const Header = () => (
   <>
@@ -26,6 +27,12 @@ export const Header = () => (
     <nav className="header header--mobile">
       <Link to="/">
         <h1 className="logo logo--mobile">
+          <StaticImage
+            src="../../images/logo.png"
+            alt="logo"
+            className="logo__image"
+            imgStyle={{ objectFit: "contain" }}
+          />
           Suicide<span className="logo__accent">By</span>Star
         </h1>
       </Link>

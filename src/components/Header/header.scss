@@ -1,3 +1,5 @@
+@import "./../../styles/mixins.scss";
+
 h1 {
   color: red;
 }
@@ -26,6 +28,9 @@ h1 {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+
   --text-logo-size: 4em;
 
   font-family: var(--font-family-secondary), sans-serif;
@@ -33,14 +38,33 @@ h1 {
   text-transform: uppercase;
   color: var(--color-text);
   padding-bottom: var(--space-xxs);
-  font-size: var(--text-logo-size);
+  font-size: var(--text-xxxl);
 
-  .logo__accent {
+  @include md {
+    font-size: var(--text-logo-size);
+  }
+
+  &__accent {
     color: var(--color-primary);
+  }
+
+  --logo-size-sm: 48px;
+  --logo-size-md: 64px;
+
+  &__image {
+    margin-right: var(--space-xxs);
+    margin-left: var(--space-xxs);
+    height: var(--logo-size-sm);
+    width: var(--logo-size-sm);
+
+    @include md {
+      height: var(--logo-size-md);
+      width: var(--logo-size-md);
+    }
   }
 }
 
-.logo--mobile {
-  font-size: var(--text-xxxl);
-  margin-left: var(--space-xxs);
-}
+// .logo--mobile {
+//   font-size: var(--text-xxxl);
+//   margin-left: var(--space-xxs);
+// }
