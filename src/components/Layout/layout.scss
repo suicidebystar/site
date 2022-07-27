@@ -4,6 +4,7 @@
   min-width: 100vw;
 
   @include lg {
+    max-width: 960px;
     min-width: 960px;
   }
 }
