@@ -35,6 +35,19 @@ export const Header = () => {
             </Link>
           </Menu>
         </div>
+        <div className="header__menu-large">
+          <ul>
+            <Link className="menu-item" href="/about">
+              Programas
+            </Link>
+            <Link className="menu-item" href="/contact">
+              Monográficos
+            </Link>
+            <Link className="menu-item" href="/contact">
+              Archivo
+            </Link>
+          </ul>
+        </div>
       </nav>
     </>
   );

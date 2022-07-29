@@ -8,6 +8,7 @@ h1 {
   flex-direction: row;
   overflow: hidden;
   justify-content: space-between;
+  margin-bottom: var(--space-xxs);
 
   > a {
     text-decoration: none;
@@ -30,7 +31,6 @@ h1 {
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   color: var(--color-text);
-  padding-bottom: var(--space-xxs);
   font-size: var(--text-xxxl);
 
   @include md {
@@ -126,11 +126,31 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: rgba(0, 0, 0, 0.3);
 }
 
-.menu-item {
+.header__menu-mobile .menu-item {
   color: var(--color-text);
   text-decoration: none;
   font-family: var(--font-family-secondary);
   text-transform: uppercase;
   font-size: var(--text-xxl);
   font-weight: var(--font-weight-bold);
+}
+
+.header__menu-large {
+  display: none;
+
+  @include sm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: var(--space-md);
+  }
+
+  .menu-item {
+    margin-left: var(--space-sm);
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: var(--font-family-secondary);
+    text-transform: uppercase;
+    font-size: var(--text-lg);
+  }
 }
