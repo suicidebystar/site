@@ -42,7 +42,8 @@
 
   //// COLORS
   --color-primary: #00b473;
-  --color-text: white;
+  --color-clear: white;
+  --color-text: var(--color-clear);
 }
 
 body {

@@ -5,25 +5,18 @@ h1 {
 }
 .header {
   display: flex;
+  flex-direction: row;
   overflow: hidden;
-
-  &__menu {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    li {
-      margin-left: var(--space-md);
-    }
-  }
+  justify-content: space-between;
 
   > a {
     text-decoration: none;
   }
-}
 
-.header--mobile {
-  .logo {
-    text-align: center;
+  &__menu-mobile {
+    @include sm {
+      display: none;
+    }
   }
 }
 
@@ -64,7 +57,80 @@ h1 {
   }
 }
 
-// .logo--mobile {
-//   font-size: var(--text-xxxl);
-//   margin-left: var(--space-xxs);
-// }
+// Hamburguer menu
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: var(--space-sm);
+  top: 15px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: var(--color-clear);
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: var(--color-clear);
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 36px;
+  width: 36px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: var(--color-clear);
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.menu-item {
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-family-secondary);
+  text-transform: uppercase;
+  font-size: var(--text-xxl);
+  font-weight: var(--font-weight-bold);
+}
