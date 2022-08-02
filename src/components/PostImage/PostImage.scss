@@ -15,7 +15,11 @@
     &::before {
       content: "";
       z-index: 1;
-      background: linear-gradient(to bottom, transparent 0%, black 80%);
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--color-dark) 80%
+      );
       position: absolute;
       height: 100%;
       width: 100%;
@@ -41,7 +45,7 @@
     display: none;
     place-self: start end;
     padding: var(--space-sm);
-    background-color: black;
+    background-color: var(--color-dark);
 
     @include sm {
       display: block;

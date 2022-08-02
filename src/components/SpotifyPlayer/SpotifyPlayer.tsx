@@ -4,7 +4,7 @@ export const SpotifyPlayer = ({ url }) => {
   return (
     <iframe
       src={url}
-      width="300"
+      width="250"
       height="380"
       frameBorder="0"
       allowTransparency={true}

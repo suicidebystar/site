@@ -1,21 +1,54 @@
 .post {
   display: grid;
-
-  grid-template-columns: 1fr 200px;
-
+  gap: 0;
+  grid-template-columns: 1fr 300px;
   grid-template-areas:
     "header header"
     "content sidebar";
 
   &__header {
     grid-area: header;
+    margin-bottom: -7px;
+  }
+
+  &__subscriptions {
+    display: flex;
+    justify-content: center;
+
+    .subscription-widget {
+      width: 200px;
+    }
+  }
+
+  &__player {
+    background-color: var(--color-dark);
   }
 
   &__content {
+    padding: var(--space-lg);
+    font-size: var(--text-lg);
     grid-area: content;
+    background-color: var(--color-dark);
+    line-height: 1.7em;
+
+    li {
+      margin-bottom: var(--space-xs);
+    }
   }
 
   &__sidebar {
     grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+
+    > * {
+      margin-bottom: var(--space-lg);
+    }
+  }
+
+  &__playlist {
+    display: flex;
+    justify-content: center;
   }
 }

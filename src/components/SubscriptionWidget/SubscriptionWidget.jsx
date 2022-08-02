@@ -7,9 +7,9 @@ import {
   GoogleSubscriptionButton,
 } from "../SubscriptionButtons";
 
-export function SubscriptionWidget() {
+export function SubscriptionWidget(props) {
   return (
-    <section className="subscription-widget">
+    <section className="subscription-widget" {...props}>
       <IvooxSubscriptionButton />
       <SpotifySubscriptionButton />
       <AppleSubscriptionButton />

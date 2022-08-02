@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Slab:wght@200;300&display=swap");
 :root {
   //// SPACING
   --space-unit: 1em;
@@ -12,6 +12,7 @@
   --space-xxl: calc(5.25 * var(--space-unit));
 
   //// FONTS
+  --font-family-primary: "Montserrat";
   --font-family-secondary: "Barlow Condensed";
 
   --font-weight-regular: 400;
@@ -44,6 +45,8 @@
   --color-primary: #00b473;
   --color-clear: white;
   --color-text: var(--color-clear);
+  --color-dark-grey: #444;
+  --color-dark: #1a1a1a;
 }
 
 body {
@@ -51,7 +54,9 @@ body {
   flex-direction: row;
   justify-content: center;
   color: var(--color-text);
-  background: url(../images/styles/bg.png);
+  background: url(../images/styles/bg2.png);
+  font-family: "Roboto Slab";
+  font-weight: 200;
 }
 
 h1,
