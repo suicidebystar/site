@@ -1,12 +1,12 @@
 import React from "react";
-import { FeaturedPostCard } from "../FeaturedPostCard";
+import { PostCard } from "../PostCard";
 import "./PostList.scss";
 
 export function PostList({ posts }) {
   return (
     <section className="post-list">
       {posts.map((post) => (
-        <FeaturedPostCard post={post} key={post.slug} />
+        <PostCard post={post} key={post.slug} />
       ))}
     </section>
   );

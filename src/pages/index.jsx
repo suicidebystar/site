@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Layout,
-  FeaturedPostCard,
-  PostList,
-  SubscriptionWidget,
-} from "../components";
+import { Layout, PostCard, PostList, SubscriptionWidget } from "../components";
 import { graphql } from "gatsby";
 import "./index.scss";
 
@@ -31,18 +26,18 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div className="home">
         <section className="home__featured">
-          <FeaturedPostCard post={lastPost} isFeatured={true} />
+          <PostCard post={lastPost} isFeatured={true} />
         </section>
         <section className="home__posts">
           <PostList posts={morePosts} />
         </section>
         <section className="home__monographs">
           <h2 className="home__section-title">Monográficos</h2>
-          <FeaturedPostCard post={lastMonograph} />
+          <PostCard post={lastMonograph} />
         </section>
         <section className="home__sessions">
           <h2 className="home__section-title">Sesiones</h2>
-          <FeaturedPostCard post={lastSession} />
+          <PostCard post={lastSession} />
         </section>
         <section className="home__subscribe">
           <SubscriptionWidget />

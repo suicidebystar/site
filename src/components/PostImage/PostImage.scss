@@ -1,9 +1,8 @@
 @import "./../../styles/mixins.scss";
 
-.featured-post {
+.post-image {
   display: grid;
   grid-template-areas: "stack";
-  text-decoration: none;
   color: white;
 
   > * {
@@ -60,9 +59,9 @@
     }
   }
 
-  &--featured {
+  &--xl {
     @include lg {
-      .featured-post__title {
+      .post-image__title {
         font-size: calc(
           var(--text-xxxl) * var(--text-scale-ratio) * var(--text-scale-ratio)
         );

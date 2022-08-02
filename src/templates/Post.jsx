@@ -1,25 +1,15 @@
 import React from "react";
-import { Layout, IvooxPlayer, SpotifyPlayer } from "../components";
+import { Layout, IvooxPlayer, SpotifyPlayer, PostImage } from "../components";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default function Post({ data }) {
-  const {
-    title,
-    ivoox,
-    featuredImage,
-    programNumber,
-    spotify,
-  } = data.mdx.frontmatter;
-  const image = getImage(featuredImage);
+  const post = data.mdx.frontmatter;
+  const { ivoox, spotify } = post;
 
   return (
     <Layout>
-      <h2>
-        #{programNumber}: {title}
-      </h2>
-      <GatsbyImage image={image} alt={title} />
+      <PostImage post={post} isBig />
       <IvooxPlayer id={ivoox} />
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
       {spotify && <SpotifyPlayer url={spotify} />}
@@ -28,17 +18,18 @@ export default function Post({ data }) {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(frontmatter: { path: { eq: $slug } }) {
       body
       frontmatter {
         title
         ivoox
         spotify
+        category
         programNumber
         featuredImage {
           childImageSharp {
-            gatsbyImageData(width: 200)
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }

@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "gatsby";
-import { getProgramName } from "../../utils";
+import "./PostCard.scss";
+import { PostImage } from "../PostImage";
 
-export function PostCard({ post }) {
+export function PostCard({ post, isFeatured }) {
+  const { path } = post;
+
   return (
-    <div>
-      <Link to={post.path}>{post.title}</Link>
-      <p>{getProgramName(post)}</p>
-    </div>
+    <>
+      <Link className="post-card" to={path}>
+        <PostImage post={post} isBig={isFeatured} />
+      </Link>
+    </>
   );
 }
