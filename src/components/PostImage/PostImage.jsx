@@ -4,7 +4,7 @@ import "./PostImage.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import classNames from "classnames";
 
-export function PostImage({ post, isBig }) {
+export function PostImage({ post, isBig, ...props }) {
   const { featuredImage, title, audio } = post;
   const image = getImage(featuredImage);
   const isAudioVisible = isBig && audio;
@@ -15,7 +15,7 @@ export function PostImage({ post, isBig }) {
   });
 
   return (
-    <>
+    <div {...props}>
       <section className={cardClassName}>
         <GatsbyImage className="post-image__image" image={image} alt={title} />
         <section className="post-image__content">
@@ -34,6 +34,6 @@ export function PostImage({ post, isBig }) {
         </section>
         <span className="post-image__program">{getProgramName(post)}</span>
       </section>
-    </>
+    </div>
   );
 }

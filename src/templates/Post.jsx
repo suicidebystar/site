@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, IvooxPlayer, SpotifyPlayer, PostImage } from "../components";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import "./Post.scss";
 
 export default function Post({ data }) {
   const post = data.mdx.frontmatter;
@@ -9,10 +10,18 @@ export default function Post({ data }) {
 
   return (
     <Layout>
-      <PostImage post={post} isBig />
-      <IvooxPlayer id={ivoox} />
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      {spotify && <SpotifyPlayer url={spotify} />}
+      <section className="post">
+        <section className="post__header">
+          <PostImage post={post} isBig className="post__header" />
+          <IvooxPlayer id={ivoox} />
+        </section>
+        <section className="post__content">
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
+        </section>
+        <section className="post__sidebar">
+          {spotify && <SpotifyPlayer url={spotify} />}
+        </section>
+      </section>
     </Layout>
   );
 }

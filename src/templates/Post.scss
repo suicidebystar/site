@@ -1,0 +1,21 @@
+.post {
+  display: grid;
+
+  grid-template-columns: 1fr 200px;
+
+  grid-template-areas:
+    "header header"
+    "content sidebar";
+
+  &__header {
+    grid-area: header;
+  }
+
+  &__content {
+    grid-area: content;
+  }
+
+  &__sidebar {
+    grid-area: sidebar;
+  }
+}
