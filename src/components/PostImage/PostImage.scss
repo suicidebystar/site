@@ -10,7 +10,10 @@
   }
 
   &__image {
+    border-radius: 10px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
     z-index: -1;
+    height: 220px;
 
     &::before {
       content: "";
@@ -38,7 +41,8 @@
 
   &__title {
     color: white;
-    font-size: var(--text-xxl);
+    font-size: var(--text-xl);
+    line-height: 1em;
   }
 
   &__program {
@@ -65,6 +69,10 @@
 
   &--xl {
     @include lg {
+      .post-image__image {
+        height: 550px;
+      }
+
       .post-image__title {
         font-size: calc(
           var(--text-xxxl) * var(--text-scale-ratio) * var(--text-scale-ratio)

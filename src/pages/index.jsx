@@ -94,7 +94,7 @@ export const pageQuery = graphql`
             ivoox
             featuredImage {
               childImageSharp {
-                gatsbyImageData(layout: CONSTRAINED, height: 230)
+                gatsbyImageData(layout: CONSTRAINED, height: 300)
               }
             }
             programNumber
