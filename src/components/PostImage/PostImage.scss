@@ -50,6 +50,10 @@
     place-self: start end;
     padding: var(--space-sm);
     background-color: var(--color-dark);
+    opacity: 0.9;
+    font-size: var(--text-sm);
+    border-radius: 0px 10px 0px 10px;
+    font-weight: var(--font-weight-regular);
 
     @include sm {
       display: block;
