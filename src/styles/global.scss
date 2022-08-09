@@ -43,6 +43,9 @@
 
   //// COLORS
   --color-primary: #00b473;
+
+  --color-primary-light: #4dc79c;
+
   --color-clear: white;
   --color-text: var(--color-clear);
   --color-dark-grey: #444;
@@ -67,4 +70,11 @@ h2,
 h3,
 h4 {
   font-family: var(--font-family-secondary), sans-serif;
+  color: var(--color-primary-light);
+}
+
+a,
+a:hover,
+a:visited {
+  color: var(--color-primary-light);
 }
