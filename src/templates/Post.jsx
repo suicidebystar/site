@@ -18,8 +18,10 @@ export default function Post({ data }) {
     <Layout>
       <section className="post">
         <section className="post__header">
-          <PostImage post={post} isBig className="post__header" />
-          <IvooxPlayer id={ivoox} className="post__player" />
+          <PostImage post={post} isBig className="post__image" />
+          <div className="post__player-wrapper">
+            <IvooxPlayer id={ivoox} className="post__player" />
+          </div>
         </section>
         <section className="post__content">
           <MDXRenderer>{data.mdx.body}</MDXRenderer>

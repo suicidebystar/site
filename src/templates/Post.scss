@@ -1,14 +1,34 @@
+@import "./../styles/mixins.scss";
+
 .post {
+  --space-content: var(--space-lg);
+
   display: grid;
   gap: 0;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "header header"
-    "content sidebar";
+    "header"
+    "content"
+    "sidebar";
+
+  @include md {
+    grid-template-columns: 1fr 300px;
+    grid-template-areas:
+      "header header"
+      "content sidebar";
+  }
+
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  border-radius: var(--border-radius);
+  overflow: hidden;
 
   &__header {
     grid-area: header;
     margin-bottom: -7px;
+
+    @include md {
+      margin-bottom: -7px;
+    }
   }
 
   &__subscriptions {
@@ -16,16 +36,24 @@
     justify-content: center;
 
     .subscription-widget {
-      width: 200px;
+      width: 80%;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include md {
+        width: 200px;
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
   }
 
-  &__player {
+  &__player-wrapper {
     background-color: var(--color-dark);
+    padding: var(--space-content);
   }
 
   &__content {
-    padding: var(--space-lg);
+    padding: var(--space-content);
+    padding-top: 0px;
     font-size: var(--text-lg);
     grid-area: content;
     background-color: var(--color-dark);
