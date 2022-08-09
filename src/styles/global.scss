@@ -78,3 +78,7 @@ a:hover,
 a:visited {
   color: var(--color-primary-light);
 }
+
+p + p {
+  margin-top: var(--space-sm);
+}
