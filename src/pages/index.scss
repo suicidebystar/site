@@ -13,9 +13,11 @@
     "shop";
 
   gap: var(--space-md);
+  margin: 0px var(--space-md);
 
   @include md {
     gap: var(--space-xl);
+    padding: 0px;
   }
 
   @include lg {
