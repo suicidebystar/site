@@ -2,6 +2,8 @@
 module.exports = {
   siteMetadata: {
     title: "SuicideByStar",
+    // TODO: Review this
+    siteUrl: "https://suicidebystar.com",
   },
 
   plugins: [
@@ -18,6 +20,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        // TODO: Review this
         icon: "src/images/icon.png",
       },
     },
