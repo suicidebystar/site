@@ -1,0 +1,45 @@
+@import "./../../styles/mixins.scss";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 0px var(--space-md);
+  background-color: var(--color-dark);
+  justify-content: space-evenly;
+
+  @include lg {
+    flex-direction: row;
+  }
+
+  ul {
+    padding: 0;
+    margin-top: 0;
+
+    li {
+      display: inline;
+      list-style: none;
+      font-size: var(--text-sm);
+      margin-right: var(--space-xs);
+
+      @include lg {
+        display: block;
+      }
+
+      &:not(:last-child)::after {
+        content: "//";
+        text-decoration: none;
+        margin-left: var(--space-xs);
+        color: var(--color-clear);
+
+        @include lg {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: var(--text-md);
+  }
+}

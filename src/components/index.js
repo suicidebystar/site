@@ -7,3 +7,4 @@ export * from "./PostList";
 export * from "./SubscriptionWidget";
 export * from "./SubscriptionButtons";
 export * from "./PostImage";
+export * from "./Footer";
