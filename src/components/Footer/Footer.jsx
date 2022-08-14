@@ -9,16 +9,16 @@ export const Footer = () => {
         <h4 className="footer__title">Secciones</h4>
         <ul>
           <li>
-            <Link href="/contact">Programas</Link>
+            <Link to="/contact">Programas</Link>
           </li>
           <li>
-            <Link href="/contact">Monográfico</Link>
+            <Link to="/contact">Monográfico</Link>
           </li>
           <li>
-            <Link href="/contact">Sesiones</Link>
+            <Link to="/contact">Sesiones</Link>
           </li>
           <li>
-            <Link href="/contact">Archivo</Link>
+            <Link to="/contact">Archivo</Link>
           </li>
         </ul>
       </div>
@@ -26,22 +26,22 @@ export const Footer = () => {
         <h4 className="footer__title">Redes sociales</h4>
         <ul>
           <li>
-            <Link href="/contact">RSS</Link>
+            <Link to="/contact">RSS</Link>
           </li>
           <li>
-            <Link href="/contact">Twitter</Link>
+            <Link to="/contact">Twitter</Link>
           </li>
           <li>
-            <Link href="/contact">Ivoox</Link>
+            <Link to="/contact">Ivoox</Link>
           </li>
           <li>
-            <Link href="/contact">Spotify</Link>
+            <Link to="/contact">Spotify</Link>
           </li>
           <li>
-            <Link href="/contact">Apple podcasts</Link>
+            <Link to="/contact">Apple podcasts</Link>
           </li>
           <li>
-            <Link href="/contact">Google podcasts</Link>
+            <Link to="/contact">Google podcasts</Link>
           </li>
         </ul>
       </div>
@@ -49,16 +49,16 @@ export const Footer = () => {
         <h4 className="footer__title">Otra información</h4>
         <ul>
           <li>
-            <Link href="/contact">Contacto</Link>
+            <Link to="/contact">Contacto</Link>
           </li>
           <li>
-            <Link href="/contact">Acerca de</Link>
+            <Link to="/contact">Acerca de</Link>
           </li>
           <li>
-            <Link href="/contact">Staff</Link>
+            <Link to="/contact">Staff</Link>
           </li>
           <li>
-            <Link href="/contact">Licencia</Link>
+            <Link to="/contact">Licencia</Link>
           </li>
         </ul>
       </div>

@@ -21,29 +21,29 @@ export const Header = () => {
         </Link>
         <div className="header__menu-mobile">
           <Menu right width={"100%"}>
-            <Link className="menu-item" href="/">
+            <Link className="menu-item" to="/">
               Inicio
             </Link>
-            <Link className="menu-item" href="/about">
+            <Link className="menu-item" to="/about">
               Programas
             </Link>
-            <Link className="menu-item" href="/contact">
+            <Link className="menu-item" to="/contact">
               Monográficos
             </Link>
-            <Link className="menu-item" href="/contact">
+            <Link className="menu-item" to="/contact">
               Archivo
             </Link>
           </Menu>
         </div>
         <div className="header__menu-large">
           <ul>
-            <Link className="menu-item" href="/about">
+            <Link className="menu-item" to="/about">
               Programas
             </Link>
-            <Link className="menu-item" href="/contact">
+            <Link className="menu-item" to="/contact">
               Monográficos
             </Link>
-            <Link className="menu-item" href="/contact">
+            <Link className="menu-item" to="/contact">
               Archivo
             </Link>
           </ul>

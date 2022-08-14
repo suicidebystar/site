@@ -18,9 +18,9 @@ function transformEdgeToPost(edge) {
 const IndexPage = ({ data }) => {
   const morePosts = data.morePosts.edges.map(transformEdgeToPost);
 
-  const lastPost = transformEdgeToPost(data.lastPost.edges.pop());
-  const lastSession = transformEdgeToPost(data.lastSession.edges.pop());
-  const lastMonograph = transformEdgeToPost(data.lastMonograph.edges.pop());
+  const lastPost = transformEdgeToPost(data.lastPost.edges[0]);
+  const lastSession = transformEdgeToPost(data.lastSession.edges[0]);
+  const lastMonograph = transformEdgeToPost(data.lastMonograph.edges[0]);
 
   return (
     <Layout>
