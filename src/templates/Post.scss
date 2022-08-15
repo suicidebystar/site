@@ -25,6 +25,7 @@
   &__header {
     grid-area: header;
     margin-bottom: -7px;
+    max-width: 100%;
 
     @include md {
       margin-bottom: -7px;
@@ -59,6 +60,8 @@
     grid-area: content;
     background-color: var(--color-dark);
     line-height: 1.7em;
+    word-break: break-all;
+    hyphens: auto;
 
     li {
       margin-bottom: var(--space-xs);
