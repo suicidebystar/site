@@ -1,5 +1,11 @@
 import React from "react";
-import { Layout, PostCard, PostList, SubscriptionWidget } from "../components";
+import {
+  Head,
+  Layout,
+  PostCard,
+  PostList,
+  SubscriptionWidget,
+} from "../components";
 import { graphql } from "gatsby";
 import "./index.scss";
 
@@ -23,31 +29,34 @@ const IndexPage = ({ data }) => {
   const lastMonograph = transformEdgeToPost(data.lastMonograph.edges[0]);
 
   return (
-    <Layout>
-      <div className="home">
-        <section className="home__featured">
-          <PostCard post={lastPost} isFeatured={true} />
-        </section>
-        <section className="home__posts">
-          <PostList posts={morePosts} />
-        </section>
-        <section className="home__monographs">
-          <h2 className="home__section-title">Monográficos</h2>
-          <PostCard post={lastMonograph} />
-        </section>
-        <section className="home__sessions">
-          <h2 className="home__section-title">Sesiones</h2>
-          <PostCard post={lastSession} />
-        </section>
-        <section className="home__subscribe">
-          <SubscriptionWidget />
-        </section>
-        <section className="home__social">
-          <strong>Síguenos</strong>
-          <strong>Tienda</strong>
-        </section>
-      </div>
-    </Layout>
+    <>
+      <Head />
+      <Layout>
+        <div className="home">
+          <section className="home__featured">
+            <PostCard post={lastPost} isFeatured={true} />
+          </section>
+          <section className="home__posts">
+            <PostList posts={morePosts} />
+          </section>
+          <section className="home__monographs">
+            <h2 className="home__section-title">Monográficos</h2>
+            <PostCard post={lastMonograph} />
+          </section>
+          <section className="home__sessions">
+            <h2 className="home__section-title">Sesiones</h2>
+            <PostCard post={lastSession} />
+          </section>
+          <section className="home__subscribe">
+            <SubscriptionWidget />
+          </section>
+          <section className="home__social">
+            <strong>Síguenos</strong>
+            <strong>Tienda</strong>
+          </section>
+        </div>
+      </Layout>
+    </>
   );
 };
 

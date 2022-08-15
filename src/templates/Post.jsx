@@ -5,6 +5,7 @@ import {
   SpotifyPlayer,
   PostImage,
   SubscriptionWidget,
+  Head,
 } from "../components";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -15,29 +16,32 @@ export default function Post({ data }) {
   const { ivoox, spotify } = post;
 
   return (
-    <Layout>
-      <section className="post">
-        <section className="post__header">
-          <PostImage post={post} isBig className="post__image" />
-          <div className="post__player-wrapper">
-            <IvooxPlayer id={ivoox} className="post__player" />
-          </div>
-        </section>
-        <section className="post__content">
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
-        </section>
-        <section className="post__sidebar">
-          <div className="post__subscriptions">
-            <SubscriptionWidget />
-          </div>
-          {spotify && (
-            <div className="post__playlist">
-              <SpotifyPlayer url={spotify} />
+    <>
+      <Head title={post.title} />
+      <Layout>
+        <section className="post">
+          <section className="post__header">
+            <PostImage post={post} isBig className="post__image" />
+            <div className="post__player-wrapper">
+              <IvooxPlayer id={ivoox} className="post__player" />
             </div>
-          )}
+          </section>
+          <section className="post__content">
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          </section>
+          <section className="post__sidebar">
+            <div className="post__subscriptions">
+              <SubscriptionWidget />
+            </div>
+            {spotify && (
+              <div className="post__playlist">
+                <SpotifyPlayer url={spotify} />
+              </div>
+            )}
+          </section>
         </section>
-      </section>
-    </Layout>
+      </Layout>
+    </>
   );
 }
 
