@@ -15,9 +15,16 @@
   gap: var(--space-md);
   margin: 0px var(--space-md);
 
-  @include md {
+  @include sm {
     gap: var(--space-xl);
     padding: 0px;
+
+    grid-template-areas:
+      "featured featured"
+      "posts posts"
+      "monographs sessions"
+      "subscribe social"
+      "shop shop";
   }
 
   @include lg {
