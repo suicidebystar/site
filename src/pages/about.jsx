@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Layout, Head, Content } from "../components";
+import { Layout, Head, Page } from "../components";
 
-export default function Staff() {
+export default function About() {
   return (
     <>
       <Head title="Sobre nosotros" />
       <Layout>
-        <Content title="Sobre SuicideByStar">
+        <Page title="Sobre SuicideByStar">
           <>
             <p>
               <strong>SuicideByStar</strong> somos un grupo de amigos que en
@@ -44,7 +44,7 @@ export default function Staff() {
               </a>
             </p>
           </>
-        </Content>
+        </Page>
       </Layout>
     </>
   );

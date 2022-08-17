@@ -1,20 +1,10 @@
 .content {
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  border-radius: var(--border-radius);
-  overflow: hidden;
   padding: var(--space-content);
-  background-color: var(--color-dark);
   line-height: 1.7em;
   word-break: break-all;
   font-size: var(--text-lg);
 
-  &__text > p + h2 {
+  > p + h2 {
     margin-top: var(--space-sm);
-  }
-
-  &__title {
-    font-size: var(--text-xxxl);
-    margin-bottom: var(--space-sm);
-    color: var(--color-clear);
   }
 }

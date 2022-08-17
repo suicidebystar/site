@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Layout, Head, Content } from "../components";
+import { Layout, Head, Page } from "../components";
 
 export default function Staff() {
   return (
     <>
       <Head title="Staff" />
       <Layout>
-        <Content title="Sobre el staff">
+        <Page title="Sobre el staff">
           <h2>Tharandur</h2>
           <p>
             El cerebro de SuicideByStar, y el único parlante en lengua binaria.
@@ -52,7 +52,7 @@ export default function Staff() {
             hobbies detaca trolear a fans de Blood, elaborar firmas oficiales,
             comentar el Marca y molar.
           </p>
-        </Content>
+        </Page>
       </Layout>
     </>
   );
