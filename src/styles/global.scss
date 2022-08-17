@@ -11,6 +11,8 @@
   --space-xl: calc(3.25 * var(--space-unit));
   --space-xxl: calc(5.25 * var(--space-unit));
 
+  --space-content: var(--space-lg);
+
   //// FONTS
   --font-family-primary: "Montserrat";
   --font-family-secondary: "Barlow Condensed";
