@@ -8,7 +8,13 @@
   word-break: break-all;
   font-size: var(--text-lg);
 
-  > p + h2 {
+  &__text > p + h2 {
     margin-top: var(--space-sm);
+  }
+
+  &__title {
+    font-size: var(--text-xxxl);
+    margin-bottom: var(--space-sm);
+    color: var(--color-clear);
   }
 }

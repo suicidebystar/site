@@ -7,7 +7,7 @@ export default function Staff() {
     <>
       <Head title="Staff" />
       <Layout>
-        <Content>
+        <Content title="Sobre el staff">
           <h2>Tharandur</h2>
           <p>
             El cerebro de SuicideByStar, y el único parlante en lengua binaria.
