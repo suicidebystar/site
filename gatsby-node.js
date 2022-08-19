@@ -42,16 +42,44 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  result.data.categories.group.forEach((category) => {
+  // TODO: https://www.gatsbyjs.com/docs/adding-pagination/
+  //       https://nickymeuleman.netlify.app/blog/gatsby-pagination
+  result.data.categories.group.forEach(async (category) => {
+    const categoryPostsResult = await graphql(`
+      query {
+        allMdx(filter: { frontmatter: { category: { eq: "${category.fieldValue}" } } }) {
+          edges {
+            node {
+              slug
+              frontmatter {
+                category
+                path
+              }
+            }
+          }
+        }
+      }
+    `);
+
+    const postsPerPage = 12;
+    const categoryPosts = categoryPostsResult.data.allMdx.edges;
+    const numPages = Math.ceil(categoryPosts.length / postsPerPage);
+
     // TODO: path should be sanitized in some way
-    createPage({
-      path: `category/${category.fieldValue}`,
-      component: path.resolve(`./src/templates/Category.jsx`),
-      context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
-        category: category.fieldValue,
-      },
+    const baseURI = `category/${category.fieldValue}`;
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? baseURI : `${baseURI}/${i + 1}`,
+        component: path.resolve("./src/templates/Category.jsx"),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+          category: category.fieldValue,
+        },
+      });
     });
   });
 };

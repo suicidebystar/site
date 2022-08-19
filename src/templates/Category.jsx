@@ -1,17 +1,23 @@
 import React from "react";
 
-
 import { Link, graphql } from "gatsby";
 
 const Category = ({ pageContext, data }) => {
-  const { category } = pageContext;
-  const { edges, totalCount } = data.allMdx;
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } part of "${category}"`;
+  const { edges } = data.allMdx;
+  const { currentPage, numPages, category } = pageContext;
+  const baseURI = `/category/${category}`;
+
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === numPages;
+  const prevPage =
+    currentPage - 1 === 1
+      ? baseURI
+      : `${baseURI}/${(currentPage - 1).toString()}`;
+  const nextPage = `${baseURI}/${(currentPage + 1).toString()}`;
+
   return (
     <div>
-      <h1>{tagHeader}</h1>
+      <h1>{category}</h1>
       <ul>
         {edges.map(({ node }) => {
           const { slug } = node;
@@ -27,7 +33,16 @@ const Category = ({ pageContext, data }) => {
               This links to a page that does not yet exist.
               You'll come back to it!
             */}
-      <Link to="/tags">All categories</Link>
+      {!isFirst && (
+        <Link to={prevPage} rel="prev">
+          ← Previous Page
+        </Link>
+      )}
+      {!isLast && (
+        <Link to={nextPage} rel="next">
+          Next Page →
+        </Link>
+      )}
     </div>
   );
 };
@@ -35,9 +50,10 @@ const Category = ({ pageContext, data }) => {
 export default Category;
 
 export const pageQuery = graphql`
-  query($category: String) {
+  query ($category: String, $skip: Int!, $limit: Int!) {
     allMdx(
-      limit: 2000
+      limit: $limit
+      skip: $skip
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { category: { eq: $category } } }
     ) {
