@@ -16,3 +16,28 @@ function getProgramType(category) {
       return "???";
   }
 }
+
+export function getPluralizedProgramType(category) {
+  switch (category) {
+    case "regular-show":
+      return "Programas";
+    case "session":
+      return "Sesiones";
+    case "monograph":
+      return "Monográficos";
+    default:
+      return "???";
+  }
+}
+
+export function transformEdgeToPost(edge) {
+  if (!edge) {
+    return {};
+  }
+
+  const { node } = edge;
+  return {
+    slug: node.slug,
+    ...node.frontmatter,
+  };
+}

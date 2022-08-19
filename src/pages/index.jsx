@@ -8,18 +8,7 @@ import {
 } from "../components";
 import { graphql } from "gatsby";
 import "./index.scss";
-
-function transformEdgeToPost(edge) {
-  if (!edge) {
-    return {};
-  }
-
-  const { node } = edge;
-  return {
-    slug: node.slug,
-    ...node.frontmatter,
-  };
-}
+import { transformEdgeToPost } from "../utils";
 
 const IndexPage = ({ data }) => {
   const morePosts = data.morePosts.edges.map(transformEdgeToPost);
