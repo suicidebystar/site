@@ -1,38 +1,41 @@
 @import "./../../styles/mixins.scss";
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  padding: 0px var(--space-md);
-  background-color: var(--color-dark);
-  justify-content: space-evenly;
+  margin-top: var(--space-xl);
 
-  @include lg {
-    flex-direction: row;
-  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm) var(--space-md);
+    justify-content: space-evenly;
 
-  ul {
-    padding: 0;
-    margin-top: 0;
+    @include lg {
+      flex-direction: row;
+    }
 
-    li {
-      display: inline;
-      list-style: none;
-      font-size: var(--text-sm);
-      margin-right: var(--space-xs);
+    ul {
+      padding: 0;
+      margin-top: 0;
 
-      @include lg {
-        display: block;
-      }
-
-      &:not(:last-child)::after {
-        content: "//";
-        text-decoration: none;
-        margin-left: var(--space-xs);
-        color: var(--color-clear);
+      li {
+        display: inline;
+        list-style: none;
+        font-size: var(--text-sm);
+        margin-right: var(--space-xs);
 
         @include lg {
-          display: none;
+          display: block;
+        }
+
+        &:not(:last-child)::after {
+          content: "//";
+          text-decoration: none;
+          margin-left: var(--space-xs);
+          color: var(--color-clear);
+
+          @include lg {
+            display: none;
+          }
         }
       }
     }
