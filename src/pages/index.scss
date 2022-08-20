@@ -26,6 +26,12 @@
       "shop shop";
   }
 
+  margin: 0px var(--space-md);
+
+  @include sm {
+    margin: 0;
+  }
+
   @include lg {
     grid-template-columns: 1fr 1fr 200px;
 
