@@ -1,12 +1,12 @@
 import React from "react";
 
-import { Layout, Head, Page } from "../components";
+import { Layout, Content, Page } from "../components";
 
 export default function About() {
   return (
     <Layout>
       <Page title="Sobre SuicideByStar">
-        <>
+        <Content>
           <p>
             <strong>SuicideByStar</strong> somos un grupo de amigos que en abril
             de 2007 y tras varios años escribiendo en el extinto foro de
@@ -40,7 +40,7 @@ export default function About() {
               c......@suicidebystar.com
             </a>
           </p>
-        </>
+        </Content>
       </Page>
     </Layout>
   );

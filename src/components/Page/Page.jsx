@@ -1,19 +1,18 @@
 import React from "react";
-import { Content } from "../Content";
 import { Card } from "../Card";
 import { Head } from "../Head";
 import "./Page.scss";
 
-export function Page({ children, title }) {
+export function Page({ children, title, ...props }) {
   return (
-    <section className="page">
-      <Head title={title} />
-      <Card>
-        <Content>
+    <div {...props}>
+      <section className="page">
+        <Head title={title} />
+        <Card>
           {title && <h1 className="page__title">{title}</h1>}
           {children}
-        </Content>
-      </Card>
-    </section>
+        </Card>
+      </section>
+    </div>
   );
 }

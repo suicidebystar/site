@@ -1,0 +1,21 @@
+@import "./../styles/mixins.scss";
+
+.category-page {
+  display: flex;
+  flex-direction: column;
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--space-md);
+    font-weight: var(--font-weight-bold);
+
+    @include sm {
+      flex-direction: row;
+      justify-content: space-evenly;
+      font-size: var(--text-lg);
+    }
+  }
+}
