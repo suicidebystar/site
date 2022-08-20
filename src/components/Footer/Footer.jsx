@@ -12,16 +12,18 @@ export const Footer = () => {
             <h4 className="footer__title">Secciones</h4>
             <ul>
               <li>
-                <Link to="/contact">Programas</Link>
+                <Link to="/category/regular-show">Programas</Link>
               </li>
               <li>
-                <Link to="/contact">Monográfico</Link>
+                <Link to="/category/monograph">Monográfico</Link>
               </li>
               <li>
-                <Link to="/contact">Sesiones</Link>
+                <Link to="/category/session">Sesiones</Link>
               </li>
               <li>
-                <Link to="/contact">Archivo</Link>
+                <Link to="https://archivo.suicidebystar.com/" target="_blank">
+                  Archivo
+                </Link>
               </li>
             </ul>
           </div>
@@ -51,9 +53,6 @@ export const Footer = () => {
           <div className="footer__column">
             <h4 className="footer__title">Otra información</h4>
             <ul>
-              <li>
-                <Link to="/contact">Contacto</Link>
-              </li>
               <li>
                 <Link to="/about">Acerca de</Link>
               </li>
