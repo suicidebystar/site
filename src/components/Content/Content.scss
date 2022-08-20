@@ -1,7 +1,8 @@
 .content {
-  padding: var(--space-content);
   line-height: 1.7em;
   font-size: var(--text-lg);
+  padding: var(--space-content);
+  padding-top: 0px;
 
   > p + h2 {
     margin-top: var(--space-sm);

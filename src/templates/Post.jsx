@@ -7,6 +7,7 @@ import {
   SubscriptionWidget,
   Head,
   Card,
+  Content,
 } from "../components";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -29,7 +30,9 @@ export default function Post({ data }) {
               </div>
             </section>
             <section className="post__content">
-              <MDXRenderer>{data.mdx.body}</MDXRenderer>
+              <Content>
+                <MDXRenderer>{data.mdx.body}</MDXRenderer>
+              </Content>
             </section>
             <section className="post__sidebar">
               <div className="post__subscriptions">

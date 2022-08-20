@@ -4,6 +4,10 @@
   display: flex;
   flex-direction: column;
 
+  &__list {
+    padding: 0px var(--space-content);
+  }
+
   &__navigation {
     display: flex;
     flex-direction: column;
@@ -11,6 +15,7 @@
     align-items: center;
     margin-top: var(--space-md);
     font-weight: var(--font-weight-bold);
+    padding-bottom: var(--space-md);
 
     @include sm {
       flex-direction: row;

@@ -13,7 +13,6 @@
     "shop";
 
   gap: var(--space-md);
-  margin: 0px var(--space-md);
 
   @include sm {
     gap: var(--space-xl);
