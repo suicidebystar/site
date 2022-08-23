@@ -37,6 +37,15 @@ export const Footer = () => {
               </li>
               <li>
                 <a
+                  href="https://suicidebystar.bigcartel.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Merch
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://twitter.com/suicidebystar"
                   target="_blank"
                   rel="noreferrer"
