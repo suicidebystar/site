@@ -99,9 +99,9 @@ module.exports = {
               }
             }
             `,
-            output: "/rss.xml",
+            output: "/feed",
             title: "SuicideBystar RSS Feed",
-            site_url: "https://suicidebystar.com",
+            site_url: "https://suicidebystar.com/",
           },
         ],
       },
