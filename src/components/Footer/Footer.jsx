@@ -31,7 +31,7 @@ export const Footer = () => {
             <h4 className="footer__title">Redes sociales</h4>
             <ul>
               <li>
-                <a href="/contact" target="_blank">
+                <a href="/feed" target="_blank">
                   RSS
                 </a>
               </li>
