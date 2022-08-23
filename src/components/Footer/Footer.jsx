@@ -31,22 +31,54 @@ export const Footer = () => {
             <h4 className="footer__title">Redes sociales</h4>
             <ul>
               <li>
-                <Link to="/contact">RSS</Link>
+                <a href="/contact" target="_blank">
+                  RSS
+                </a>
               </li>
               <li>
-                <Link to="/contact">Twitter</Link>
+                <a
+                  href="https://twitter.com/suicidebystar"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Twitter
+                </a>
               </li>
               <li>
-                <Link to="/contact">Ivoox</Link>
+                <a
+                  href="https://www.ivoox.com/podcast-suicidebystar_sq_f1172814_1.html"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ivoox
+                </a>
               </li>
               <li>
-                <Link to="/contact">Spotify</Link>
+                <a
+                  href="https://open.spotify.com/show/7uttH3F62RZfg03W28WtvC?si=d02d4a8878c7417a"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Spotify
+                </a>
               </li>
               <li>
-                <Link to="/contact">Apple podcasts</Link>
+                <a
+                  href="https://podcasts.apple.com/es/podcast/suicidebystar/id1110408380"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Apple podcasts
+                </a>
               </li>
               <li>
-                <Link to="/contact">Google podcasts</Link>
+                <a
+                  href="https://podcasts.google.com/feed/aHR0cHM6Ly93d3cuaXZvb3guY29tL3BvZGNhc3Qtc3VpY2lkZWJ5c3Rhcl9mZ19mMTE3MjgxNF9maWx0cm9fMS54bWw"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Google podcasts
+                </a>
               </li>
             </ul>
           </div>

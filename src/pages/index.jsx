@@ -39,10 +39,7 @@ const IndexPage = ({ data }) => {
           <section className="home__subscribe">
             <SubscriptionWidget />
           </section>
-          <section className="home__social">
-            <strong>Síguenos</strong>
-            <strong>Tienda</strong>
-          </section>
+          <section className="home__social">{/* TODO: */}</section>
         </div>
       </Layout>
     </>
