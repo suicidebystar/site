@@ -54,7 +54,7 @@ module.exports = {
       __key: "posts",
     },
     {
-      resolve: "gatsby-plugin-feed",
+      resolve: `gatsby-plugin-feed`,
       options: {
         query: `
           {
@@ -63,7 +63,6 @@ module.exports = {
                 title
                 description
                 siteUrl
-                site_url: siteUrl
               }
             }
           }
@@ -71,46 +70,39 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              console.log({ site, allMdx });
-              return allMdx.edges.map((node) => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+              return allMdx.edges.map((edge) => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  data: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
                 });
               });
             },
             query: `
-              {
-                allMdx(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields {
-                        slug
-                      }
-                      frontmatter {
-                        title
-                        date
-                      }
+            {
+              allMdx(
+                limit: 1000,
+                sort: { order: DESC, fields: [frontmatter___date] },
+                filter: { frontmatter: { published: { ne: false } } }
+              ) {
+                edges {
+                  node {
+                    fields { slug }
+                    frontmatter {
+                      title
+                      date
                     }
+                    html
                   }
                 }
               }
+            }
             `,
-            output: "/feed",
-            title: "SuicideByStar RSS Feed",
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            // match: "^/blog/",
-            // optional configuration to specify external rss feed, such as feedburner
-            // link: "https://feeds.feedburner.com/gatsby/blog",
+            output: "/rss.xml",
+            title: "SuicideBystar RSS Feed",
+            site_url: "https://suicidebystar.com",
           },
         ],
       },
