@@ -1,53 +1,41 @@
 import * as React from "react";
 import { Link } from "gatsby";
-
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
-
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-};
+import { Layout, Page, Content, Card } from "../components";
 
 // markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <Layout>
+      <Page title="Página no encontrada">
+        <Content>
+          <p>
+            <strong>Oops 😰</strong>
+          </p>
+          <p>
+            No hemos encontrado lo que buscabas. Acabamos de cambiar la web y
+            muchas cosas se han movido de sitio.
+          </p>
+          <p>
+            <ul>
+              <li>
+                📖 Si estás buscando un{" "}
+                <strong>artículo de la antigua web</strong>, lo puedes encontrar
+                en nuestro{" "}
+                <strong>
+                  <a href="https://archivo.suicidebystar.com">archivo</a>
+                </strong>
+              </li>
+              <li>
+                🎙 Para los <strong>podcasts</strong>, dirigete a nuestra{" "}
+                <Link to="/">
+                  <strong>página principal</strong>
+                </Link>
+              </li>
+            </ul>
+          </p>
+        </Content>
+      </Page>
+    </Layout>
   );
 };
 
