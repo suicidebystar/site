@@ -55,6 +55,15 @@ export const Footer = () => {
               </li>
               <li>
                 <a
+                  href="https://t.me/joinchat/CQjmHENlQLVgGlCChurbXw"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Telegram
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://www.ivoox.com/podcast-suicidebystar_sq_f1172814_1.html"
                   target="_blank"
                   rel="noreferrer"
