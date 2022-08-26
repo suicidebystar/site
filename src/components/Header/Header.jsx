@@ -31,9 +31,14 @@ export const Header = () => {
             <Link className="menu-item" to="/category/monograph">
               Monográficos
             </Link>
-            <Link className="menu-item" to="/category/session">
+            <a
+              className="menu-item"
+              href="https://archivo.suicidebystar.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               Archivo
-            </Link>
+            </a>
           </Menu>
         </div>
         <div className="header__menu-large">
@@ -44,9 +49,14 @@ export const Header = () => {
             <Link className="menu-item" to="/category/monograph">
               Monográficos
             </Link>
-            <Link className="menu-item" to="/category/session">
+            <a
+              className="menu-item"
+              href="https://archivo.suicidebystar.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               Archivo
-            </Link>
+            </a>
           </ul>
         </div>
       </nav>
