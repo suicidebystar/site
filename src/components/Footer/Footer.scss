@@ -16,16 +16,19 @@
     ul {
       padding: 0;
       margin-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+
+      @include lg {
+        flex-direction: column;
+      }
 
       li {
-        display: inline;
         list-style: none;
         font-size: var(--text-sm);
+        font-weight: var(--font-weight);
         margin-right: var(--space-xs);
-
-        @include lg {
-          display: block;
-        }
 
         &:not(:last-child)::after {
           content: "//";
