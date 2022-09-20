@@ -19,7 +19,7 @@ export default function Post({ data }) {
 
   return (
     <>
-      <Head title={post.title} />
+      <Head title={post.title} description={data.mdx.excerpt} />
       <Layout>
         <Card>
           <section className="post">
@@ -55,6 +55,7 @@ export const query = graphql`
   query ($slug: String!) {
     mdx(frontmatter: { path: { eq: $slug } }) {
       body
+      excerpt
       frontmatter {
         title
         ivoox

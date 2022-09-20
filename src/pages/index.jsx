@@ -19,7 +19,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
-      <Head />
+      <Head description="Los mejores podcasts de música alternativa" />
       <Layout>
         <div className="home">
           <section className="home__featured">
