@@ -11,15 +11,21 @@ import {
 } from "../components";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { getSrc } from "gatsby-plugin-image";
 import "./Post.scss";
 
 export default function Post({ data }) {
   const post = data.mdx.frontmatter;
   const { ivoox, spotify } = post;
+  const featuredImageUrl = getSrc(data.mdx.frontmatter.featuredImage);
 
   return (
     <>
-      <Head title={post.title} description={data.mdx.excerpt} />
+      <Head
+        title={post.title}
+        description={data.mdx.excerpt}
+        image={featuredImageUrl}
+      />
       <Layout>
         <Card>
           <section className="post">
