@@ -3,6 +3,7 @@
   font-size: var(--text-lg);
   padding: var(--space-content);
   padding-top: 0px;
+  word-break: break-word;
 
   > p + h2 {
     margin-top: var(--space-sm);
