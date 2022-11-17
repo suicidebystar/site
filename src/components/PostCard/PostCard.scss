@@ -2,4 +2,12 @@
 
 .post-card {
   text-decoration: none;
+
+  .post-image__title {
+    transition: color 0.2s;
+  }
+
+  &:hover .post-image__title {
+    color: var(--color-primary-light);
+  }
 }
