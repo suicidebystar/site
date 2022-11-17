@@ -149,5 +149,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
     font-family: var(--font-family-secondary);
     text-transform: uppercase;
     font-size: var(--text-lg);
+    transition: border-width 0.2s, color 0.2s;
+    border: 0px solid var(--color-primary-light);
+
+    &:hover {
+      color: var(--color-primary-light);
+      border-bottom-width: 3px;
+    }
   }
 }
