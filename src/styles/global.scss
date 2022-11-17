@@ -83,3 +83,8 @@ a:visited {
 p + p {
   margin-top: var(--space-sm);
 }
+
+::selection {
+  color: var(--color-clear);
+  background: var(--color-primary-light);
+}
