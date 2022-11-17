@@ -92,6 +92,7 @@ module.exports = {
                     frontmatter {
                       title
                       date
+                      path
                     }
                     html
                   }
