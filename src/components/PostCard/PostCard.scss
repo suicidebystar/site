@@ -4,10 +4,18 @@
   text-decoration: none;
 
   .post-image__title {
-    transition: color 0.2s;
+    transition: color 0.5s;
   }
 
   &:hover .post-image__title {
     color: var(--color-primary-light);
+  }
+
+  .post-image__image {
+    transition: transform 0.5s ease;
+  }
+
+  &:hover .post-image__image {
+    transform: scale(1.1);
   }
 }
