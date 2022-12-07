@@ -35,15 +35,15 @@ export default function Post({ data }) {
                 <IvooxPlayer id={ivoox} className="post__player" />
               </div>
             </section>
+            <section className="post__info">
+              <SubscriptionWidget />
+            </section>
             <section className="post__content">
               <Content>
                 <MDXRenderer>{data.mdx.body}</MDXRenderer>
               </Content>
             </section>
-            <section className="post__sidebar">
-              <div className="post__subscriptions">
-                <SubscriptionWidget />
-              </div>
+            <section className="post__bottom">
               {spotify && (
                 <div className="post__playlist">
                   <SpotifyPlayer url={spotify} />
