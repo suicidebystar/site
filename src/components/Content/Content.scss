@@ -5,7 +5,16 @@
   padding-top: 0px;
   word-break: break-word;
 
-  > p + h2 {
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: var(--text-xxl);
     margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
 }

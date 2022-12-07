@@ -1,0 +1,32 @@
+.album-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-sm);
+  padding-bottom: var(--space-lg);
+  text-align: center;
+  border-bottom: 15px dotted var(--color-dark-grey);
+
+  &__position {
+    color: var(--color-primary);
+    font-size: var(--text-xxxl);
+    font-weight: var(--font-weight-bold);
+    &::after {
+      content: ".";
+    }
+  }
+
+  &__title {
+    font-size: var(--text-md);
+    font-weight: var(--font-weight-bold);
+  }
+
+  &__cover {
+    text-align: center;
+    padding: var(--space-sm);
+  }
+
+  & + h2 {
+    // TODO: Create an AlbumList with this margin
+    margin-top: var(--space-lg);
+  }
+}

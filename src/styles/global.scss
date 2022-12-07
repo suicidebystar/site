@@ -45,7 +45,7 @@
 
   //// COLORS
   --color-primary: #00b473;
-  --color-primary-light: #89ffba;
+  --color-primary-light: #28b986;
 
   --color-clear: white;
   --color-text: var(--color-clear);
@@ -87,4 +87,9 @@ p + p {
 ::selection {
   color: var(--color-clear);
   background: var(--color-primary-light);
+}
+
+ol li::marker {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
 }

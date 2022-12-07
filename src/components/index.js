@@ -12,3 +12,4 @@ export * from "./Head";
 export * from "./Content";
 export * from "./Card";
 export * from "./Page";
+export * from "./AlbumList";

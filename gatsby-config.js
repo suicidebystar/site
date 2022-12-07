@@ -9,6 +9,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
+    `gatsby-remark-images`,
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
@@ -24,7 +25,16 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
