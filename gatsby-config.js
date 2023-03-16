@@ -90,15 +90,10 @@ module.exports = {
                 });
               });
             },
-            query: `
-            {
-              allMdx(
-                limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] },
-              ) {
+            query: `{
+              allMdx(limit: 1000, sort: {frontmatter: {date: DESC}}) {
                 edges {
                   node {
-                    slug
                     frontmatter {
                       title
                       date
@@ -108,8 +103,7 @@ module.exports = {
                   }
                 }
               }
-            }
-            `,
+            }`,
             output: "/feed",
             title: "SuicideBystar RSS Feed",
             site_url: "https://suicidebystar.com/",

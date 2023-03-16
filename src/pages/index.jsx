@@ -50,13 +50,9 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query {
-    lastPost: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 1
-    ) {
+    lastPost: allMdx(sort: { frontmatter: { date: DESC } }, limit: 1) {
       edges {
         node {
-          slug
           frontmatter {
             title
             path
@@ -73,15 +69,13 @@ export const pageQuery = graphql`
         }
       }
     }
-
     morePosts: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       limit: 6
       skip: 1
     ) {
       edges {
         node {
-          slug
           frontmatter {
             title
             path
@@ -97,15 +91,13 @@ export const pageQuery = graphql`
         }
       }
     }
-
     lastMonograph: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       limit: 1
       filter: { frontmatter: { category: { eq: "monograph" } } }
     ) {
       edges {
         node {
-          slug
           frontmatter {
             title
             path
@@ -121,15 +113,13 @@ export const pageQuery = graphql`
         }
       }
     }
-
     lastSession: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       limit: 1
       filter: { frontmatter: { category: { eq: "session" } } }
     ) {
       edges {
         node {
-          slug
           frontmatter {
             title
             path

@@ -10,11 +10,10 @@ import {
   Content,
 } from "../components";
 import { graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import { getSrc } from "gatsby-plugin-image";
 import "./Post.scss";
 
-export default function Post({ data }) {
+const Post = ({ data, children }) => {
   const post = data.mdx.frontmatter;
   const { ivoox, spotify } = post;
   const featuredImageUrl = getSrc(data.mdx.frontmatter.featuredImage);
@@ -39,9 +38,7 @@ export default function Post({ data }) {
               <SubscriptionWidget />
             </section>
             <section className="post__content">
-              <Content>
-                <MDXRenderer>{data.mdx.body}</MDXRenderer>
-              </Content>
+              <Content>{children}</Content>
             </section>
             <section className="post__bottom">
               {spotify && (
@@ -55,12 +52,13 @@ export default function Post({ data }) {
       </Layout>
     </>
   );
-}
+};
+
+export default Post;
 
 export const query = graphql`
   query ($slug: String!) {
     mdx(frontmatter: { path: { eq: $slug } }) {
-      body
       excerpt
       frontmatter {
         title

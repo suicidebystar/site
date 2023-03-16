@@ -53,13 +53,12 @@ export const pageQuery = graphql`
     allMdx(
       limit: $limit
       skip: $skip
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { category: { eq: $category } } }
     ) {
       totalCount
       edges {
         node {
-          slug
           frontmatter {
             title
             path
