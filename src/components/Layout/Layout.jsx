@@ -4,15 +4,25 @@ import { Footer } from "../Footer";
 import "./layout.scss";
 import { MDXProvider } from "@mdx-js/react";
 import { AlbumItem } from "../AlbumList";
+import CookieConsent from "react-cookie-consent";
 
 const shortcodes = { AlbumItem };
 
 export const Layout = ({ children }) => (
-  <MDXProvider components={shortcodes}>
-    <Header />
-    <main className="container">
-      <article>{children}</article>
-      <Footer />
-    </main>
-  </MDXProvider>
+  <>
+    <MDXProvider components={shortcodes}>
+      <Header />
+      <main className="container">
+        <article>{children}</article>
+        <Footer />
+      </main>
+    </MDXProvider>
+    <CookieConsent
+      tyle={{ background: "#444" }}
+      buttonStyle={{ backgroundColor: "#00b473" }}
+      buttonText="Acepto"
+    >
+      Este sitio web utiliza cookies para mejorar la experiencia del usuario.
+    </CookieConsent>
+  </>
 );
