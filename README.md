@@ -16,7 +16,7 @@
    npm run start
    ```
 
-3. Go to [http://localhost:8000/] to see the site.
+3. Go to [http://localhost:8000/](http://localhost:8000/) to see the site.
 
 ## How to deploy
 
@@ -24,4 +24,4 @@
 
 2. Check deploying process in [Netlify](https://app.netlify.com/sites/papaya-hamster-86017c/overview)
 
-3. After Netlify finishes, changes will be available in [https://suicidebystar.com]
+3. After Netlify finishes, changes will be available in [https://suicidebystar.com](https://suicidebystar.com)
