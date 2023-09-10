@@ -1,48 +1,27 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/225bc15d-f4c4-410f-8c09-6e755e5935a4/deploy-status)](https://app.netlify.com/sites/papaya-hamster-86017c/deploys)
 
-## 🚀 Quick start
+# 💀 SuicideByStar website
 
-1.  **Create a Gatsby site.**
+## How to develop
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+1. Update dependencies:
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+   ```sh
+   npm install
+   ```
 
-2.  **Start developing.**
+2. Start the environment:
 
-    Navigate into your new site’s directory and start it up.
+   ```sh
+   npm run start
+   ```
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+3. Go to `http://localhost:8000/` to see the site.
 
-3.  **Open the code and start customizing!**
+## How to deploy
 
-    Your site is now running at http://localhost:8000!
+1. Add new commits to `main` branch.
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+2. Check deploying process in [Netlify](https://app.netlify.com/sites/papaya-hamster-86017c/overview)
 
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+3. After Netlify finishes, changes will be available in `https://suicidebystar.com`
