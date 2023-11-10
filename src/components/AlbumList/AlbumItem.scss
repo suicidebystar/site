@@ -1,17 +1,21 @@
 @import "./../../styles/mixins.scss";
 
 .album-item {
+  --album-item-border-size: 5px;
+
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
   counter-increment: album-list-counter;
   padding-bottom: var(--space-sm);
-  padding-top: var(--space-sm);
+  padding-top: calc(var(--space-xs) - var(--album-item-border-size));
+  box-sizing: border-box;
 
-  border-bottom: 5px dotted var(--color-dark-grey);
+  border-bottom: var(--album-item-border-size) dotted var(--color-dark-grey);
 
   &:nth-child(1) {
-    border-top: 5px dotted var(--color-dark-grey);
+    border-top: var(--album-item-border-size) dotted var(--color-dark-grey);
+    padding-top: var(--space-sm);
   }
 
   @include md {
