@@ -3,10 +3,10 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import "./layout.scss";
 import { MDXProvider } from "@mdx-js/react";
-import { AlbumItem } from "../AlbumList";
+import { AlbumItem, AlbumList } from "../AlbumList";
 import CookieConsent from "react-cookie-consent";
 
-const shortcodes = { AlbumItem };
+const shortcodes = { AlbumItem, AlbumList };
 
 export const Layout = ({ children }) => (
   <>
