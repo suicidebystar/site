@@ -1,6 +1,5 @@
 import React from "react";
 import "./AlbumItem.scss";
-import { StaticImage } from "gatsby-plugin-image";
 
 const toKebabCase = (string) =>
   string
@@ -9,8 +8,6 @@ const toKebabCase = (string) =>
     .toLowerCase();
 
 export function AlbumItem({ title, children, artist, tags, ...props }) {
-  console.log({ tags });
-
   return (
     <li className="album-item" {...props}>
       <div className="album-item__cover">{children}</div>
