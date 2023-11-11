@@ -2,6 +2,7 @@
   list-style: none;
   counter-reset: album-list-counter;
   margin-bottom: var(--space-xl);
+  padding-left: 0;
 }
 
 .content .album-list__title {
