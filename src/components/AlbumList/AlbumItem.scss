@@ -1,33 +1,98 @@
+@import "./../../styles/mixins.scss";
+
 .album-item {
+  --album-item-border-size: 5px;
+
   display: flex;
   flex-direction: column;
-  padding: var(--space-sm);
-  padding-bottom: var(--space-lg);
-  text-align: center;
-  border-bottom: 15px dotted var(--color-dark-grey);
-  justify-content: center;
+  gap: var(--space-sm);
+  counter-increment: album-list-counter;
+  padding-bottom: var(--space-sm);
+  padding-top: calc(var(--space-xs) - var(--album-item-border-size));
+  box-sizing: border-box;
 
-  &__position {
-    color: var(--color-primary);
-    font-size: var(--text-xxxl);
-    font-weight: var(--font-weight-bold);
-    &::after {
-      content: ".";
+  border-bottom: var(--album-item-border-size) dotted var(--color-dark-grey);
+
+  &:nth-child(1) {
+    border-top: var(--album-item-border-size) dotted var(--color-dark-grey);
+    padding-top: var(--space-sm);
+  }
+
+  @include md {
+    flex-direction: row;
+  }
+
+  &__cover > span > span {
+    min-width: 200px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+
+    @include md {
+      text-align: left;
     }
   }
 
-  &__title {
-    font-size: var(--text-md);
+  &__album {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    font-size: var(--text-lg);
     font-weight: var(--font-weight-bold);
+
+    @include md {
+      display: flex;
+    }
   }
 
-  &__cover {
+  &__artist {
+    font-size: var(--text-md);
+  }
+
+  &__title {
+    color: var(--color-primary-light);
+  }
+
+  &__tags {
+    color: var(--color-light-grey);
+    font-weight: var(--font-weight-bold);
     text-align: center;
-    padding: var(--space-sm);
+
+    @include md {
+      text-align: left;
+    }
   }
 
-  & + h2 {
-    // TODO: Create an AlbumList with this margin
-    margin-top: var(--space-lg);
+  &__tag {
+    &::before {
+      content: "#";
+      color: var(--color-primary);
+    }
+
+    &::after {
+      content: " ";
+    }
+
+    &:last-child::after {
+      content: "";
+    }
+  }
+
+  &::before {
+    content: counter(album-list-counter);
+    align-self: center;
+    color: var(--color-primary);
+    font-size: var(--text-xxxl);
+    font-weight: var(--font-weight-bold);
+
+    @include md {
+      content: counter(album-list-counter) ".";
+      min-width: 75px;
+    }
   }
 }
