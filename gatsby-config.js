@@ -10,12 +10,6 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     `gatsby-remark-images`,
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "396651842",
-      },
-    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-netlify",
