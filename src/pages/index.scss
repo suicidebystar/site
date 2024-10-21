@@ -5,6 +5,7 @@
 
   grid-template-areas:
     "featured"
+    "banner"
     "posts"
     "monographs"
     "sessions"
@@ -20,6 +21,7 @@
 
     grid-template-areas:
       "featured featured"
+      "banner banner"
       "posts posts"
       "monographs sessions"
       "subscribe social"
@@ -37,6 +39,7 @@
 
     grid-template-areas:
       "featured featured featured"
+      "banner banner banner"
       "posts posts subscribe"
       "monographs sessions social"
       "shop shop shop";
@@ -68,6 +71,32 @@
 
   &__shop {
     grid-area: shop;
+  }
+
+  &__banner {
+    grid-area: banner;
+    display: inline;
+    font-size: var(--text-xl);
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: var(--border-radius);
+    padding: var(--space-sm);
+    text-align: center;
+
+    @include sm {
+      font-size: var(--text-xxxl);
+    }
+    .home__banner-link {
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--color-clear);
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
   }
 
   &__section-title {

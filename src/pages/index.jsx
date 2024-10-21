@@ -9,6 +9,7 @@ import {
 import { graphql } from "gatsby";
 import "./index.scss";
 import { transformEdgeToPost } from "../utils";
+import { StaticImage } from "gatsby-plugin-image";
 
 const IndexPage = ({ data }) => {
   const morePosts = data.morePosts.edges.map(transformEdgeToPost);
@@ -22,6 +23,25 @@ const IndexPage = ({ data }) => {
       <Head description="Los mejores podcasts de música alternativa" />
       <Layout>
         <div className="home">
+          <section className="home__banner">
+            <a
+              href="https://suicidebystar.bigcartel.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="home__banner-link"
+            >
+              <strong>¡Nuevo merch disponible!</strong>
+              <StaticImage
+                src="../images/logo-trve.png"
+                alt="logo"
+                width={300}
+                className="logo__image"
+                imgStyle={{ objectFit: "contain" }}
+              />
+
+              <strong>VISITA NUESTRA TIENDA</strong>
+            </a>
+          </section>
           <section className="home__featured">
             <PostCard post={lastPost} isFeatured={true} />
           </section>
