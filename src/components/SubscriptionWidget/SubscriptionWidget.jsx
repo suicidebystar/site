@@ -4,7 +4,6 @@ import {
   IvooxSubscriptionButton,
   SpotifySubscriptionButton,
   AppleSubscriptionButton,
-  GoogleSubscriptionButton,
 } from "../SubscriptionButtons";
 
 export function SubscriptionWidget(props) {
@@ -13,7 +12,6 @@ export function SubscriptionWidget(props) {
       <IvooxSubscriptionButton />
       <SpotifySubscriptionButton />
       <AppleSubscriptionButton />
-      <GoogleSubscriptionButton />
     </section>
   );
 }

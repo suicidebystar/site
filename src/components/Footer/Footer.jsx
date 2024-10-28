@@ -98,15 +98,6 @@ export const Footer = () => {
                   Apple podcasts
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://podcasts.google.com/feed/aHR0cHM6Ly93d3cuaXZvb3guY29tL3BvZGNhc3Qtc3VpY2lkZWJ5c3Rhcl9mZ19mMTE3MjgxNF9maWx0cm9fMS54bWw"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Google podcasts
-                </a>
-              </li>
             </ul>
           </div>
           <div className="footer__column">
