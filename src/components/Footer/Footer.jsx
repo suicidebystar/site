@@ -46,6 +46,15 @@ export const Footer = () => {
               </li>
               <li>
                 <a
+                  href="https://bsky.app/profile/suicidebystar.bsky.social"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Bluesky
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://twitter.com/suicidebystar"
                   target="_blank"
                   rel="noreferrer"
