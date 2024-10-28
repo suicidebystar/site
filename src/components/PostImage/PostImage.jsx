@@ -3,6 +3,7 @@ import { getProgramName } from "../../utils";
 import "./PostImage.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import classNames from "classnames";
+import { AudioPlayer } from "../AudioPlayer/AudioPlayer";
 
 export function PostImage({ post, isBig, ...props }) {
   const { featuredImage, title, audio } = post;
@@ -22,14 +23,7 @@ export function PostImage({ post, isBig, ...props }) {
           <h2 className="post-image__title">{title}</h2>
           {/* TODO: Customise this and move this to its own component */}
           {isAudioVisible && (
-            <audio
-              controls="controls"
-              preload="metadata"
-              className="post-image__player"
-            >
-              <source src={audio} type="audio/mpeg" />
-              Your browser does not support the audio element.
-            </audio>
+            <AudioPlayer audio={audio} className="post-image__player" />
           )}
         </section>
         <span className="post-image__program">{getProgramName(post)}</span>
