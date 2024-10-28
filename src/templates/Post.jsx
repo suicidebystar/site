@@ -31,7 +31,11 @@ const Post = ({ data, children }) => {
             <section className="post__header">
               <PostImage post={post} isBig className="post__image" />
               <div className="post__player-wrapper">
-                <IvooxPlayer id={ivoox} className="post__player" />
+                <IvooxPlayer
+                  id={ivoox}
+                  audioFallback={post.audio}
+                  className="post__player"
+                />
               </div>
             </section>
             <section className="post__info">
@@ -66,6 +70,7 @@ export const query = graphql`
         spotify
         category
         programNumber
+        audio
         featuredImage {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)
