@@ -44,6 +44,15 @@ const Post = ({ data, children }) => {
             <section className="post__content">
               <Content>{children}</Content>
             </section>
+            <section className="post__comments">
+              <a
+                href="https://t.me/joinchat/CQjmHENlQLVgGlCChurbXw"
+                target="_blank"
+                rel="noreferrer"
+              >
+                💬 Comenta en nuestro Telegram
+              </a>
+            </section>
             <section className="post__bottom">
               {spotify && (
                 <div className="post__playlist">
