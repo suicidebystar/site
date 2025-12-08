@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Bind mount the workspace so edits reflect instantly
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.cache
+      - /app/public
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    environment:
+      - GATSBY_TELEMETRY_DISABLED=1
+      - NODE_ENV=development
+      - TSC_COMPILE_ON_ERROR=true
+      - NODE_OPTIONS=--trace-warnings --trace-uncaught --max-old-space-size=6144
+    command: ["yarn", "run", "develop", "-H", "0.0.0.0", "--port", "8000"]
+
+volumes:
+  node_modules:
