@@ -32,6 +32,7 @@ docker compose up
   docker compose run --rm web yarn add -D <pkg>
   
   ```
+
 - If native modules (e.g., `sharp`) fail on macOS Apple Silicon, rebuild:
   
   ```sh
