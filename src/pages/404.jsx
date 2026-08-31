@@ -22,7 +22,7 @@ const NotFoundPage = () => {
                 <strong>artículo de la antigua web</strong>, lo puedes encontrar
                 en nuestro{" "}
                 <strong>
-                  <a href="https://archivo.suicidebystar.com">archivo</a>
+                  <a href="https://archivo.suicidebystar.sbs">archivo</a>
                 </strong>
               </li>
               <li>

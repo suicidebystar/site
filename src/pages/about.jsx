@@ -37,7 +37,7 @@ export default function About() {
               target="_blank"
               rel="noreferrer"
             >
-              c......@suicidebystar.com
+              c......@suicidebystar.sbs
             </a>
           </p>
         </Content>

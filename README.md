@@ -24,4 +24,4 @@
 
 2. Check deploying process in [Netlify](https://app.netlify.com/sites/papaya-hamster-86017c/overview)
 
-3. After Netlify finishes, changes will be available in [https://suicidebystar.com](https://suicidebystar.com)
+3. After Netlify finishes, changes will be available in [https://suicidebystar.sbs](https://suicidebystar.sbs)

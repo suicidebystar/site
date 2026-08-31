@@ -24,7 +24,7 @@ export function Head({ title, description, image }) {
   ];
 
   if (image) {
-    const imageAbsoluteUrl = `https://suicidebystar.com${image}`;
+    const imageAbsoluteUrl = `https://suicidebystar.sbs${image}`;
 
     metaInfo = [
       ...metaInfo,

@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: "SuicideByStar",
     // TODO: Review this
-    siteUrl: "https://suicidebystar.com",
+    siteUrl: "https://suicidebystar.sbs",
   },
 
   plugins: [
@@ -99,7 +99,7 @@ module.exports = {
             }`,
             output: "/feed",
             title: "SuicideBystar RSS Feed",
-            site_url: "https://suicidebystar.com/",
+            site_url: "https://suicidebystar.sbs/",
           },
         ],
       },

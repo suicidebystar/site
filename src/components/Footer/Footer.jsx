@@ -21,7 +21,7 @@ export const Footer = () => {
                 <Link to="/category/session">Sesiones</Link>
               </li>
               <li>
-                <Link to="https://archivo.suicidebystar.com/" target="_blank">
+                <Link to="https://archivo.suicidebystar.sbs/" target="_blank">
                   Archivo
                 </Link>
               </li>

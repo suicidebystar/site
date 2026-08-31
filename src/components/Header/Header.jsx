@@ -33,7 +33,7 @@ export const Header = () => {
             </Link>
             <a
               className="menu-item"
-              href="https://archivo.suicidebystar.com"
+              href="https://archivo.suicidebystar.sbs"
               target="_blank"
               rel="noreferrer"
             >
@@ -51,7 +51,7 @@ export const Header = () => {
             </Link>
             <a
               className="menu-item"
-              href="https://archivo.suicidebystar.com"
+              href="https://archivo.suicidebystar.sbs"
               target="_blank"
               rel="noreferrer"
             >
