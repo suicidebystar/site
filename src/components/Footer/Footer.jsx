@@ -46,7 +46,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://bsky.app/profile/suicidebystar.bsky.social"
+                  href="https://bsky.app/profile/suicidebystar.sbs"
                   target="_blank"
                   rel="noreferrer"
                 >
