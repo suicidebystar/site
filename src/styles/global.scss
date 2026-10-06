@@ -53,6 +53,7 @@
 
   //// RADIUS
   --border-radius: 10px;
+  --transition-duration: 0.2s;
 }
 
 body {
@@ -100,4 +101,24 @@ ol li::marker {
 // explicit width/height attributes.
 img {
   height: auto;
+}
+
+// Cross-document view transitions: cross-fade between pages on navigation.
+// Pure CSS, no client-side router. Browsers without support (Firefox as of
+// late 2026) fall back to a regular navigation.
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--transition-duration);
+}
+
+// reset.css' reduced-motion rule doesn't reach the view-transition
+// pseudo-elements, so opt out of the transition explicitly.
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
 }
