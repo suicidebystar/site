@@ -1,0 +1,20 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Netlify still auto-installs its Gatsby plugin on this site, and it fails
+  # the build when there is no Gatsby output.
+  NETLIFY_SKIP_GATSBY_BUILD_PLUGIN = "true"
+
+# The feed has no file extension, so tell browsers/readers what it is.
+[[headers]]
+  for = "/feed"
+  [headers.values]
+    Content-Type = "application/rss+xml; charset=utf-8"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

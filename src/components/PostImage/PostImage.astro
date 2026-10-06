@@ -1,0 +1,47 @@
+---
+import { Picture } from "astro:assets";
+import AudioPlayer from "../AudioPlayer/AudioPlayer.astro";
+import { getProgramName, type Post } from "../../lib/posts";
+import "./PostImage.scss";
+
+interface Props {
+  post: Post;
+  isBig?: boolean;
+  /** Eagerly load the image (use for above-the-fold images). */
+  priority?: boolean;
+  class?: string;
+}
+
+const { post, isBig = false, priority = false, class: className } = Astro.props;
+const { featuredImage, title, audio } = post.data;
+const isAudioVisible = isBig && audio;
+
+const widths = isBig ? [576, 768, 960] : [375, 576, 768];
+const sizes = isBig
+  ? "(min-width: 992px) 960px, 100vw"
+  : "(min-width: 992px) 470px, (min-width: 576px) 50vw, 100vw";
+---
+
+<div class={className}>
+  <section class:list={["post-image", { "post-image--xl": isBig }]}>
+    <div class="post-image__image">
+      <Picture
+        src={featuredImage}
+        alt={title}
+        formats={["avif", "webp"]}
+        widths={widths}
+        sizes={sizes}
+        quality={70}
+        loading={priority ? "eager" : "lazy"}
+        fetchpriority={priority ? "high" : "auto"}
+      />
+    </div>
+    <section class="post-image__content">
+      <h2 class="post-image__title">{title}</h2>
+      {isAudioVisible && (
+        <AudioPlayer audio={audio} class="post-image__player" />
+      )}
+    </section>
+    <span class="post-image__program">{getProgramName(post)}</span>
+  </section>
+</div>

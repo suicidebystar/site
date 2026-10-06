@@ -1,0 +1,14 @@
+---
+import "./AlbumList.scss";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<h2 class="album-list__title">{title}</h2>
+<ol class="album-list__list">
+  <slot />
+</ol>

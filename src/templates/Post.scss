@@ -1,4 +1,4 @@
-@import "./../styles/mixins.scss";
+@use "../styles/mixins" as *;
 
 .post {
   display: grid;
@@ -98,7 +98,9 @@
       outline: 0;
       text-align: center;
       transform: translateY(0);
-      transition: transform 150ms, box-shadow 150ms;
+      transition:
+        transform 150ms,
+        box-shadow 150ms;
       user-select: none;
       -webkit-user-select: none;
       touch-action: manipulation;

@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import apple from "@images/podcast-badges/apple.png";
+import ivoox from "@images/podcast-badges/ivoox.png";
+import spotify from "@images/podcast-badges/spotify.png";
+import "./SubscriptionWidget.scss";
+
+const buttons = [
+  {
+    src: ivoox,
+    href: "https://www.ivoox.com/podcast-suicidebystar_sq_f1172814_1.html",
+    alt: "Síguenos en Ivoox",
+  },
+  {
+    src: spotify,
+    href: "https://open.spotify.com/show/7uttH3F62RZfg03W28WtvC?si=d02d4a8878c7417a",
+    alt: "Síguenos en Spotify",
+  },
+  {
+    src: apple,
+    href: "https://podcasts.apple.com/es/podcast/suicidebystar/id1110408380",
+    alt: "Síquenos en Apple Podcasts",
+  },
+];
+---
+
+<section class="subscription-widget">
+  {buttons.map(({ src, href, alt }) => (
+    <a target="_blank" rel="noreferrer" href={href}>
+      <Image src={src} alt={alt} />
+    </a>
+  ))}
+</section>
