@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Page from "../components/Page/Page.astro";
+import Content from "../components/Content/Content.astro";
+
+const title = "Fanzine";
+---
+
+<BaseLayout title={title}>
+  <Page title={title}>
+    <Content>
+      <p>
+        En 2017, para celebrar nuestro <strong>X aniversario</strong>, editamos
+        un fanzine junto a <strong>Hugo Camacho</strong>, editor de{" "}
+        <a href="http://www.orcinypress.com/" target="_blank" rel="noreferrer">
+          Orciny Press
+        </a>
+        . Una pieza de coleccionista que ahora puedes descargar en PDF.
+      </p>
+      <p>
+        <a href="/fanzine-x-aniversario.pdf" download>
+          Descargar el fanzine (PDF)
+        </a>
+      </p>
+    </Content>
+  </Page>
+</BaseLayout>
