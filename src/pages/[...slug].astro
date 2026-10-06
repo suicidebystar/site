@@ -1,5 +1,4 @@
 ---
-import { getImage } from "astro:assets";
 import { render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card/Card.astro";
@@ -30,19 +29,14 @@ const { post } = Astro.props;
 const { ivoox, spotify } = post.data;
 const { Content: PostContent } = await render(post);
 
-// Social networks don't support AVIF, so the preview image is a JPEG.
-const socialImage = await getImage({
-  src: post.data.featuredImage,
-  width: 1200,
-  format: "jpg",
-  quality: 80,
-});
+// Rendered by src/pages/og/[...slug].png.ts.
+const socialImage = `/og/${post.data.path.replace(/^\/|\/$/g, "")}.png`;
 ---
 
 <BaseLayout
   title={post.data.title}
   description={getExcerpt(post)}
-  image={socialImage.src}
+  image={socialImage}
 >
   <Card>
     <section class="post">

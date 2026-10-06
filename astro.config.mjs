@@ -6,8 +6,15 @@ import sitemap from "@astrojs/sitemap";
 
 const IMAGES_DIR = fileURLToPath(new URL("./src/images", import.meta.url));
 
+// Netlify previews point absolute URLs (og:image, canonical) at themselves, so
+// link cards can be tested before the images exist in production.
+const SITE =
+  process.env.CONTEXT && process.env.CONTEXT !== "production"
+    ? process.env.DEPLOY_PRIME_URL
+    : "https://suicidebystar.sbs";
+
 export default defineConfig({
-  site: "https://suicidebystar.sbs",
+  site: SITE,
   trailingSlash: "ignore",
   build: {
     format: "directory",
