@@ -4,6 +4,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Netlify still auto-installs its Gatsby plugin on this site, and it fails
+  # the build when there is no Gatsby output.
+  NETLIFY_SKIP_GATSBY_BUILD_PLUGIN = "true"
 
 # The feed has no file extension, so tell browsers/readers what it is.
 [[headers]]
