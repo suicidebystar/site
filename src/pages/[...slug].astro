@@ -6,7 +6,6 @@ import Card from "../components/Card/Card.astro";
 import Content from "../components/Content/Content.astro";
 import PostImage from "../components/PostImage/PostImage.astro";
 import IvooxPlayer from "../components/IvooxPlayer/IvooxPlayer.astro";
-import SpotifyPlayer from "../components/SpotifyPlayer/SpotifyPlayer.astro";
 import SubscriptionWidget from "../components/SubscriptionWidget/SubscriptionWidget.astro";
 import AlbumList from "../components/AlbumList/AlbumList.astro";
 import AlbumItem from "../components/AlbumList/AlbumItem.astro";
@@ -27,7 +26,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { ivoox, spotify } = post.data;
+const { ivoox } = post.data;
 const { Content: PostContent } = await render(post);
 
 // Social networks don't support AVIF, so the preview image is a JPEG.
@@ -68,13 +67,6 @@ const socialImage = await getImage({
         >
           💬 Comenta en nuestro Telegram
         </a>
-      </section>
-      <section class="post__bottom">
-        {spotify && (
-          <div class="post__playlist">
-            <SpotifyPlayer url={spotify} />
-          </div>
-        )}
       </section>
     </section>
   </Card>
