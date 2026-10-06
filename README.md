@@ -6,7 +6,7 @@ Built with [Astro](https://astro.build).
 
 ## How to develop
 
-Requires Node 22 (see `.node-version`).
+Requires Node 24 (see `.node-version`).
 
 1. Install dependencies:
 

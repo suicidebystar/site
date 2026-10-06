@@ -3,7 +3,7 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
   # Netlify still auto-installs its Gatsby plugin on this site, and it fails
   # the build when there is no Gatsby output.
   NETLIFY_SKIP_GATSBY_BUILD_PLUGIN = "true"
