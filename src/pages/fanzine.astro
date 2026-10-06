@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import cover from "@images/fanzine-x-aniversario.jpg";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Page from "../components/Page/Page.astro";
+import Content from "../components/Content/Content.astro";
+
+const title = "Fanzine";
+---
+
+<BaseLayout title={title}>
+  <Page title={title}>
+    <Content>
+      <Image
+        src={cover}
+        alt="Portada del fanzine del décimo aniversario de SuicideByStar"
+        width={600}
+      />
+      <p>
+        Fanzine para rememorar el décimo aniversario de nuestra web. Contiene
+        una selección de artículos de la web mejorados (algunos totalmente
+        rescritos) y material totalmente nuevo creado para la ocasión.
+      </p>
+      <p>
+        <a href="/fanzine-x-aniversario.pdf" download>
+          Descargar el fanzine (PDF)
+        </a>
+      </p>
+      <h2>Índice</h2>
+      <ul>
+        <li>Sed Non Satiata: Le Ciel de Notre Enfance</li>
+        <li>De aquellos polvos, estos chándales: el origen del nu metal</li>
+        <li>Desde Portland con horror: especial Vrasubatlat</li>
+        <li>The Sound: From the lions mouth</li>
+        <li>
+          Cinco discos de thrash metal para los que no nos gusta el thrash (o
+          eso creemos)
+        </li>
+        <li>Mamá Ladilla: ...y el verbo se hizo punk rock progresivo</li>
+        <li>Gris/Sombres Forêts</li>
+        <li>Cave In, la banda a la que nunca amarán los conservadores</li>
+        <li>Babymetal: Las diosas del metal</li>
+        <li>
+          Los 80 solo murieron en tu corazón: el post punk de ayer y, sobre
+          todo, el de hoy
+        </li>
+        <li>ABC’s del Punk</li>
+        <li>Oriente, laboratorio post rock</li>
+        <li>Entry Level Shit: Noise</li>
+        <li>
+          Rock/metal industrial estatal: el artículo innecesario que nadie
+          esperaba
+        </li>
+        <li>Oda a Tom Morello</li>
+      </ul>
+    </Content>
+  </Page>
+</BaseLayout>
