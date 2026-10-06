@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Page from "../components/Page/Page.astro";
+import Content from "../components/Content/Content.astro";
+
+const title = "Licencia";
+---
+
+<BaseLayout title={title}>
+  <Page title={title}>
+    <Content>
+      <p>
+        Todos los textos de esta web están bajo una licencia{" "}
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">
+          Atribución-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND
+          4.0)
+        </a>
+      </p>
+    </Content>
+  </Page>
+</BaseLayout>

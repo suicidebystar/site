@@ -1,0 +1,19 @@
+---
+import Card from "../Card/Card.astro";
+import PostImage from "../PostImage/PostImage.astro";
+import { getPostUrl, type Post } from "../../lib/posts";
+import "./PostCard.scss";
+
+interface Props {
+  post: Post;
+  isFeatured?: boolean;
+}
+
+const { post, isFeatured = false } = Astro.props;
+---
+
+<Card>
+  <a class="post-card" href={getPostUrl(post)}>
+    <PostImage post={post} isBig={isFeatured} priority={isFeatured} />
+  </a>
+</Card>

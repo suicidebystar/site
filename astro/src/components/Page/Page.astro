@@ -1,0 +1,20 @@
+---
+import Card from "../Card/Card.astro";
+import "./Page.scss";
+
+interface Props {
+  title?: string;
+  class?: string;
+}
+
+const { title, class: className } = Astro.props;
+---
+
+<div class={className}>
+  <section class="page">
+    <Card>
+      {title && <h1 class="page__title">{title}</h1>}
+      <slot />
+    </Card>
+  </section>
+</div>

@@ -1,0 +1,86 @@
+---
+// Replaces react-cookie-consent. Uses the same cookie name and value
+// ("CookieConsent=true") so visitors who already accepted keep their consent.
+---
+
+<div class="cookie-consent" hidden>
+  <div class="cookie-consent__content">
+    Este sitio web utiliza cookies para mejorar la experiencia del usuario.
+  </div>
+  <button type="button" class="cookie-consent__button">
+    Acepto
+  </button>
+</div>
+
+<script>
+  const COOKIE_NAME = "CookieConsent";
+
+  const hasConsent = () =>
+    document.cookie
+      .split("; ")
+      .some((cookie) => cookie === `${COOKIE_NAME}=true`);
+
+  const renderConsentedContent = () => {
+    document
+      .querySelectorAll<HTMLTemplateElement>(
+        "template[data-requires-cookie-consent]",
+      )
+      .forEach((template) => {
+        template.replaceWith(template.content.cloneNode(true));
+      });
+  };
+
+  if (hasConsent()) {
+    renderConsentedContent();
+  } else {
+    const banner = document.querySelector<HTMLElement>(".cookie-consent");
+    const button = banner?.querySelector("button");
+
+    if (banner && button) {
+      banner.hidden = false;
+      button.addEventListener("click", () => {
+        const maxAge = 60 * 60 * 24 * 365;
+        document.cookie = `${COOKIE_NAME}=true; max-age=${maxAge}; path=/; SameSite=Lax`;
+        window.location.reload();
+      });
+    }
+  }
+</script>
+
+<style>
+  /* Same look as react-cookie-consent's default styles. */
+  .cookie-consent {
+    align-items: baseline;
+    background: #353535;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    bottom: 0;
+  }
+
+  .cookie-consent[hidden] {
+    display: none;
+  }
+
+  .cookie-consent__content {
+    flex: 1 0 300px;
+    margin: 15px;
+  }
+
+  .cookie-consent__button {
+    background-color: #00b473;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: black;
+    cursor: pointer;
+    flex: 0 0 auto;
+    padding: 5px 10px;
+    margin: 15px;
+  }
+</style>

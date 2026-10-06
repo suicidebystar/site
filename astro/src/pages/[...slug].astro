@@ -1,0 +1,81 @@
+---
+import { getImage } from "astro:assets";
+import { render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card/Card.astro";
+import Content from "../components/Content/Content.astro";
+import PostImage from "../components/PostImage/PostImage.astro";
+import IvooxPlayer from "../components/IvooxPlayer/IvooxPlayer.astro";
+import SpotifyPlayer from "../components/SpotifyPlayer/SpotifyPlayer.astro";
+import SubscriptionWidget from "../components/SubscriptionWidget/SubscriptionWidget.astro";
+import AlbumList from "../components/AlbumList/AlbumList.astro";
+import AlbumItem from "../components/AlbumList/AlbumItem.astro";
+import { getExcerpt, getSortedPosts, type Post } from "../lib/posts";
+import "../templates/Post.scss";
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts();
+  return posts.map((post) => ({
+    // Keep the URLs from the Gatsby site, which come from the `path` field.
+    params: { slug: post.data.path.replace(/^\/|\/$/g, "") },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { ivoox, spotify } = post.data;
+const { Content: PostContent } = await render(post);
+
+// Social networks don't support AVIF, so the preview image is a JPEG.
+const socialImage = await getImage({
+  src: post.data.featuredImage,
+  width: 1200,
+  format: "jpg",
+  quality: 80,
+});
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={getExcerpt(post)}
+  image={socialImage.src}
+>
+  <Card>
+    <section class="post">
+      <section class="post__header">
+        <PostImage post={post} isBig priority class="post__image" />
+        <div class="post__player-wrapper">
+          <IvooxPlayer id={ivoox} class="post__player" />
+        </div>
+      </section>
+      <section class="post__info">
+        <SubscriptionWidget />
+      </section>
+      <section class="post__content">
+        <Content>
+          <PostContent components={{ AlbumList, AlbumItem }} />
+        </Content>
+      </section>
+      <section class="post__comments">
+        <a
+          href="https://t.me/joinchat/CQjmHENlQLVgGlCChurbXw"
+          target="_blank"
+          rel="noreferrer"
+        >
+          💬 Comenta en nuestro Telegram
+        </a>
+      </section>
+      <section class="post__bottom">
+        {spotify && (
+          <div class="post__playlist">
+            <SpotifyPlayer url={spotify} />
+          </div>
+        )}
+      </section>
+    </section>
+  </Card>
+</BaseLayout>

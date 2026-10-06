@@ -1,0 +1,8 @@
+.page {
+  &__title {
+    font-size: var(--text-xxxl);
+    margin-bottom: var(--space-sm);
+    padding-top: var(--space-xs);
+    text-align: center;
+  }
+}

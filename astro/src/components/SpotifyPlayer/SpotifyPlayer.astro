@@ -1,0 +1,17 @@
+---
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<iframe
+  src={url}
+  width="90%"
+  height="380"
+  allow="encrypted-media"
+  style="border: 0"
+  loading="lazy"
+  title="Spotify"
+></iframe>

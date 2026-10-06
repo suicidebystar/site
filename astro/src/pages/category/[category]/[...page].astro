@@ -1,0 +1,55 @@
+---
+import type { GetStaticPaths, Page as PaginatedPage } from "astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Page from "../../../components/Page/Page.astro";
+import PostList from "../../../components/PostList/PostList.astro";
+import {
+  getPluralizedProgramType,
+  getSortedPosts,
+  type Category,
+  type Post,
+} from "../../../lib/posts";
+import "../../../templates/Category.scss";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  // Inlined because getStaticPaths can't reference other module variables.
+  const POSTS_PER_PAGE = 8;
+  const posts = await getSortedPosts();
+  const categories = [...new Set(posts.map((post) => post.data.category))];
+
+  return categories.flatMap((category) =>
+    paginate(
+      posts.filter((post) => post.data.category === category),
+      { params: { category }, pageSize: POSTS_PER_PAGE },
+    ),
+  );
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page: PaginatedPage<Post>;
+}
+
+const { page } = Astro.props;
+const category = Astro.params.category as Category;
+const title = `${getPluralizedProgramType(category)} (página ${page.currentPage} de ${page.lastPage})`;
+---
+
+<BaseLayout title={title}>
+  <Page title={title} class="category-page">
+    <div class="category-page__list">
+      <PostList posts={page.data} />
+    </div>
+    <div class="category-page__navigation">
+      {page.url.prev && (
+        <a href={`${page.url.prev}/`} rel="prev">
+          ← Anterior
+        </a>
+      )}
+      {page.url.next && (
+        <a href={`${page.url.next}/`} rel="next">
+          Siguiente →
+        </a>
+      )}
+    </div>
+  </Page>
+</BaseLayout>

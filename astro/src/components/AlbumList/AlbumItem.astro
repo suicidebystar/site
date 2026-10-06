@@ -1,0 +1,36 @@
+---
+import "./AlbumItem.scss";
+
+interface Props {
+  title: string;
+  artist: string;
+  tags?: string[];
+}
+
+const { title, artist, tags } = Astro.props;
+
+const toKebabCase = (string: string) =>
+  string
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/[\s_]+/g, "-")
+    .toLowerCase();
+---
+
+<li class="album-item">
+  <div class="album-item__cover">
+    <slot />
+  </div>
+  <div class="album-item__info">
+    <div class="album-item__album">
+      <div class="album-item__title">{title}</div>
+      <div class="album-item__artist">{artist}</div>
+    </div>
+    {tags && (
+      <div class="album-item__tags">
+        {tags.map((tag) => (
+          <span class="album-item__tag">{toKebabCase(tag)}</span>
+        ))}
+      </div>
+    )}
+  </div>
+</li>

@@ -1,0 +1,26 @@
+---
+interface Props {
+  id: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+const url = `https://www.ivoox.com/player_ej_${id}_6_1.html`;
+---
+
+{/*
+  The iframe sets third-party cookies, so it is only injected once the visitor
+  has accepted them (see CookieConsent.astro).
+*/}
+<template data-requires-cookie-consent>
+  <iframe
+    id={`audio_${id}`}
+    class={className}
+    allowfullscreen
+    scrolling="no"
+    height="200"
+    style="width: 100%; border: 0"
+    src={url}
+    title="Ivoox"
+  ></iframe>
+</template>

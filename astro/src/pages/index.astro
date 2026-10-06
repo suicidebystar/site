@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import logoTrve from "@images/logo-trve.png";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard/PostCard.astro";
+import PostList from "../components/PostList/PostList.astro";
+import SubscriptionWidget from "../components/SubscriptionWidget/SubscriptionWidget.astro";
+import { getSortedPosts } from "../lib/posts";
+import "../templates/Home.scss";
+
+const posts = await getSortedPosts();
+const [lastPost, ...otherPosts] = posts;
+const morePosts = otherPosts.slice(0, 6);
+const lastMonograph = posts.find((post) => post.data.category === "monograph");
+const lastSession = posts.find((post) => post.data.category === "session");
+---
+
+<BaseLayout description="Los mejores podcasts de música alternativa">
+  <div class="home">
+    <section class="home__banner">
+      <a
+        href="https://suicidebystar.bigcartel.com/"
+        target="_blank"
+        rel="noreferrer"
+        class="home__banner-link"
+      >
+        <strong>¡Nuevo merch disponible!</strong>
+        <Image
+          src={logoTrve}
+          alt="logo"
+          width={300}
+          widths={[300, 600]}
+          sizes="300px"
+          class="logo__image"
+        />
+        <strong>VISITA NUESTRA TIENDA</strong>
+      </a>
+    </section>
+    <section class="home__featured">
+      {lastPost && <PostCard post={lastPost} isFeatured />}
+    </section>
+    <section class="home__posts">
+      <PostList posts={morePosts} />
+    </section>
+    <section class="home__monographs">
+      <h2 class="home__section-title">Monográficos</h2>
+      {lastMonograph && <PostCard post={lastMonograph} />}
+    </section>
+    <section class="home__sessions">
+      <h2 class="home__section-title">Sesiones</h2>
+      {lastSession && <PostCard post={lastSession} />}
+    </section>
+    <section class="home__subscribe">
+      <SubscriptionWidget />
+    </section>
+    <section class="home__social"></section>
+  </div>
+</BaseLayout>

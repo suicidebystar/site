@@ -1,0 +1,19 @@
+# Netlify settings for the Astro site. When creating the Netlify site, set
+# "Base directory" to `astro` so this file is picked up.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# The feed has no file extension, so tell browsers/readers what it is.
+[[headers]]
+  for = "/feed"
+  [headers.values]
+    Content-Type = "application/rss+xml; charset=utf-8"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

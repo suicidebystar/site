@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import logo from "@images/logo.png";
+import "./header.scss";
+
+const sections = [
+  { href: "/category/regular-show/", label: "Programas" },
+  { href: "/category/monograph/", label: "Monográficos" },
+];
+const archiveUrl = "https://archivo.suicidebystar.sbs";
+---
+
+<nav class="header">
+  <a href="/">
+    <h1 class="logo">
+      <Image src={logo} alt="logo" class="logo__image" loading="eager" />
+      Suicide<span class="logo__accent">By</span>Star
+    </h1>
+  </a>
+  <div class="header__menu-mobile">
+    <div class="bm-overlay"></div>
+    <div class="bm-burger-button">
+      <button
+        type="button"
+        class="bm-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        Open Menu
+      </button>
+      <span class="bm-burger-bars"></span>
+      <span class="bm-burger-bars"></span>
+      <span class="bm-burger-bars"></span>
+    </div>
+    <div id="mobile-menu" class="bm-menu-wrap" aria-hidden="true" inert>
+      <div class="bm-menu">
+        <nav class="bm-item-list">
+          <a class="bm-item menu-item" href="/">
+            Inicio
+          </a>
+          {sections.map(({ href, label }) => (
+            <a class="bm-item menu-item" href={href}>
+              {label}
+            </a>
+          ))}
+          <a
+            class="bm-item menu-item"
+            href={archiveUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Archivo
+          </a>
+        </nav>
+      </div>
+      <div class="bm-cross-button">
+        <button type="button" class="bm-toggle">
+          Close Menu
+        </button>
+        <span class="bm-cross"></span>
+        <span class="bm-cross"></span>
+      </div>
+    </div>
+  </div>
+  <div class="header__menu-large">
+    <ul>
+      {sections.map(({ href, label }) => (
+        <a class="menu-item" href={href}>
+          {label}
+        </a>
+      ))}
+      <a class="menu-item" href={archiveUrl} target="_blank" rel="noreferrer">
+        Archivo
+      </a>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // Replaces react-burger-menu (slide from the right).
+  const container = document.querySelector<HTMLElement>(".header__menu-mobile");
+  const menu = container?.querySelector<HTMLElement>(".bm-menu-wrap");
+  const openButton = container?.querySelector<HTMLButtonElement>(
+    ".bm-burger-button button",
+  );
+
+  if (container && menu && openButton) {
+    const setOpen = (isOpen: boolean) => {
+      container.classList.toggle("is-open", isOpen);
+      openButton.setAttribute("aria-expanded", String(isOpen));
+      menu.setAttribute("aria-hidden", String(!isOpen));
+      menu.inert = !isOpen;
+    };
+
+    openButton.addEventListener("click", () => setOpen(true));
+    container
+      .querySelector(".bm-cross-button button")
+      ?.addEventListener("click", () => setOpen(false));
+    container
+      .querySelector(".bm-overlay")
+      ?.addEventListener("click", () => setOpen(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setOpen(false);
+    });
+  }
+</script>
