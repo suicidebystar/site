@@ -14,6 +14,7 @@ const posts = defineCollection({
       programNumber: z.number(),
       featuredImage: image(),
       audio: z.url().optional(),
+      spotify: z.url().optional(),
     }),
 });
 
