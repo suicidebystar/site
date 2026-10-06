@@ -1,4 +1,4 @@
-@import "./../../styles/mixins.scss";
+@use "../../styles/mixins" as *;
 
 .album-item {
   --album-item-border-size: 5px;
@@ -22,8 +22,20 @@
     flex-direction: row;
   }
 
-  &__cover > span > span {
-    min-width: 200px;
+  // Covers come in every size (310px to 2000px wide), so the slot is fixed
+  // and the image fills it.
+  --album-item-cover-size: 200px;
+
+  &__cover {
+    @include md {
+      flex: 0 0 var(--album-item-cover-size);
+    }
+
+    img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
   }
 
   &__info {

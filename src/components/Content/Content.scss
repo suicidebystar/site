@@ -17,4 +17,10 @@
     margin-top: var(--space-sm);
     margin-bottom: var(--space-md);
   }
+
+  // Same limits gatsby-remark-images applied to images in posts.
+  img {
+    max-width: min(100%, 650px);
+    margin-inline: auto;
+  }
 }
