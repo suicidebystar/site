@@ -1,6 +1,9 @@
 @use "../../styles/mixins" as *;
 
 .header {
+  // Own transition group so the masthead stays put while the content fades.
+  view-transition-name: site-header;
+
   display: flex;
   flex-direction: row;
   overflow: hidden;
