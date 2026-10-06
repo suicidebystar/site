@@ -32,6 +32,9 @@ Requires Node 24 (see `.node-version`).
 3. `<AlbumList>` and `<AlbumItem>` can be used in any post without importing
    them.
 
+The full guide, covering every frontmatter field and the yearly best albums
+post, is in [docs/adding-a-podcast.md](docs/adding-a-podcast.md).
+
 ## Where things are
 
 | What                         | Where                                              |
