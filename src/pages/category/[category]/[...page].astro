@@ -39,7 +39,7 @@ const title = `${getPluralizedProgramType(category)} (página ${page.currentPage
     <div class="category-page__list">
       <PostList posts={page.data} />
     </div>
-    <div class="category-page__navigation">
+    <nav class="category-page__navigation" aria-label="Paginación">
       {page.url.prev && (
         <a href={`${page.url.prev}/`} rel="prev">
           ← Anterior
@@ -50,6 +50,6 @@ const title = `${getPluralizedProgramType(category)} (página ${page.currentPage
           Siguiente →
         </a>
       )}
-    </div>
+    </nav>
   </Page>
 </BaseLayout>

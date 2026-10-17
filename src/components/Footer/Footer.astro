@@ -1,13 +1,14 @@
 ---
 import Card from "../Card/Card.astro";
+import NewTabNote from "../NewTabNote/NewTabNote.astro";
 import "./Footer.scss";
 ---
 
-<footer class="footer">
+<footer class="footer container">
   <Card>
     <div class="footer__content">
       <div class="footer__column">
-        <h4 class="footer__title">Secciones</h4>
+        <h2 class="footer__title">Secciones</h2>
         <ul>
           <li>
             <a href="/category/regular-show/">Programas</a>
@@ -19,18 +20,22 @@ import "./Footer.scss";
             <a href="/category/session/">Sesiones</a>
           </li>
           <li>
-            <a href="https://archivo.suicidebystar.sbs/" target="_blank">
-              Archivo
+            <a
+              href="https://archivo.suicidebystar.sbs/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Archivo<NewTabNote />
             </a>
           </li>
         </ul>
       </div>
       <div class="footer__column">
-        <h4 class="footer__title">Redes sociales</h4>
+        <h2 class="footer__title">Redes sociales</h2>
         <ul>
           <li>
-            <a href="/feed" target="_blank">
-              RSS
+            <a href="/feed" target="_blank" rel="noreferrer">
+              RSS<NewTabNote />
             </a>
           </li>
           <li>
@@ -39,7 +44,7 @@ import "./Footer.scss";
               target="_blank"
               rel="noreferrer"
             >
-              Merch
+              Merch<NewTabNote />
             </a>
           </li>
           <li>
@@ -48,7 +53,7 @@ import "./Footer.scss";
               target="_blank"
               rel="noreferrer"
             >
-              Bluesky
+              Bluesky<NewTabNote />
             </a>
           </li>
           <li>
@@ -57,7 +62,7 @@ import "./Footer.scss";
               target="_blank"
               rel="noreferrer"
             >
-              Twitter
+              Twitter<NewTabNote />
             </a>
           </li>
           <li>
@@ -66,7 +71,7 @@ import "./Footer.scss";
               target="_blank"
               rel="noreferrer"
             >
-              Telegram
+              Telegram<NewTabNote />
             </a>
           </li>
           <li>
@@ -75,7 +80,7 @@ import "./Footer.scss";
               target="_blank"
               rel="noreferrer"
             >
-              Ivoox
+              Ivoox<NewTabNote />
             </a>
           </li>
           <li>
@@ -84,13 +89,13 @@ import "./Footer.scss";
               target="_blank"
               rel="noreferrer"
             >
-              Apple podcasts
+              Apple podcasts<NewTabNote />
             </a>
           </li>
         </ul>
       </div>
       <div class="footer__column">
-        <h4 class="footer__title">Otra información</h4>
+        <h2 class="footer__title">Otra información</h2>
         <ul>
           <li>
             <a href="/about/">Acerca de</a>

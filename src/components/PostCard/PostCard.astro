@@ -13,7 +13,12 @@ const { post, isFeatured = false } = Astro.props;
 ---
 
 <Card>
-  <a class="post-card" href={getPostUrl(post)}>
-    <PostImage post={post} isBig={isFeatured} priority={isFeatured} />
-  </a>
+  <div class="post-card">
+    <PostImage
+      post={post}
+      isBig={isFeatured}
+      priority={isFeatured}
+      href={getPostUrl(post)}
+    />
+  </div>
 </Card>

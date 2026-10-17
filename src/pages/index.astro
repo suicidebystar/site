@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import logoTrve from "@images/logo-trve.png";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import NewTabNote from "../components/NewTabNote/NewTabNote.astro";
 import PostCard from "../components/PostCard/PostCard.astro";
 import PostList from "../components/PostList/PostList.astro";
 import SubscriptionWidget from "../components/SubscriptionWidget/SubscriptionWidget.astro";
@@ -17,6 +18,7 @@ const lastSession = posts.find((post) => post.data.category === "session");
 
 <BaseLayout description="Los mejores podcasts de música alternativa">
   <div class="home">
+    <h1 class="sr-only">SuicideByStar — podcast de música alternativa</h1>
     <section class="home__banner">
       <a
         href="https://suicidebystar.bigcartel.com/"
@@ -27,13 +29,13 @@ const lastSession = posts.find((post) => post.data.category === "session");
         <strong>¡Nuevo merch disponible!</strong>
         <Image
           src={logoTrve}
-          alt="logo"
+          alt=""
           width={300}
           widths={[300, 600]}
           sizes="300px"
           class="logo__image"
         />
-        <strong>VISITA NUESTRA TIENDA</strong>
+        <strong>VISITA NUESTRA TIENDA<NewTabNote /></strong>
       </a>
     </section>
     <section class="home__featured">

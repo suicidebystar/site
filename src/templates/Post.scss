@@ -56,7 +56,9 @@
     grid-area: content;
     background-color: var(--color-dark);
     line-height: 1.7em;
-    word-break: break-all;
+    // break-word only splits words that would overflow (long URLs), unlike
+    // break-all, which split ordinary words at any letter.
+    overflow-wrap: break-word;
     hyphens: auto;
 
     li {
@@ -99,10 +101,10 @@
       border-radius: 4px;
       box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
       box-sizing: border-box;
-      color: #fff;
+      // White on the primary green is only a 2.7:1 contrast ratio; the dark
+      // text reaches 6.4:1 (WCAG AA needs 4.5:1).
+      color: var(--color-dark);
       cursor: pointer;
-      outline: none;
-      outline: 0;
       text-align: center;
       transform: translateY(0);
       transition:

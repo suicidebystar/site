@@ -9,10 +9,24 @@ interface Props {
   isBig?: boolean;
   /** Eagerly load the image (use for above-the-fold images). */
   priority?: boolean;
+  /** Heading tag for the title; the post page passes "h1". */
+  headingLevel?: "h1" | "h2";
+  /**
+   * Links the title to this URL. Cards stretch it over the whole card
+   * (see PostCard.scss) while the player keeps its own clicks.
+   */
+  href?: string;
   class?: string;
 }
 
-const { post, isBig = false, priority = false, class: className } = Astro.props;
+const {
+  post,
+  isBig = false,
+  priority = false,
+  headingLevel: Heading = "h2",
+  href,
+  class: className,
+} = Astro.props;
 const { featuredImage, title, audio } = post.data;
 const isAudioVisible = isBig && audio;
 
@@ -25,9 +39,10 @@ const sizes = isBig
 <div class={className}>
   <section class:list={["post-image", { "post-image--xl": isBig }]}>
     <div class="post-image__image">
+      {/* Decorative: the title is rendered right below as the heading. */}
       <Picture
         src={featuredImage}
-        alt={title}
+        alt=""
         formats={["avif", "webp"]}
         widths={widths}
         sizes={sizes}
@@ -37,9 +52,11 @@ const sizes = isBig
       />
     </div>
     <section class="post-image__content">
-      <h2 class="post-image__title">{title}</h2>
+      <Heading class="post-image__title">
+        {href ? <a class="post-image__link" href={href}>{title}</a> : title}
+      </Heading>
       {isAudioVisible && (
-        <AudioPlayer audio={audio} class="post-image__player" />
+        <AudioPlayer audio={audio} title={title} class="post-image__player" />
       )}
     </section>
     <span class="post-image__program">{getProgramName(post)}</span>

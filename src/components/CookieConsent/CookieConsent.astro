@@ -3,7 +3,7 @@
 // ("CookieConsent=true") so visitors who already accepted keep their consent.
 ---
 
-<div class="cookie-consent" hidden>
+<div class="cookie-consent" role="region" aria-label="Aviso de cookies" hidden>
   <div class="cookie-consent__content">
     Este sitio web utiliza cookies para mejorar la experiencia del usuario.
   </div>
@@ -28,6 +28,15 @@
       .forEach((template) => {
         template.replaceWith(template.content.cloneNode(true));
       });
+    document
+      .querySelectorAll("[data-requires-cookie-refusal]")
+      .forEach((fallback) => fallback.remove());
+  };
+
+  const acceptCookies = () => {
+    const maxAge = 60 * 60 * 24 * 365;
+    document.cookie = `${COOKIE_NAME}=true; max-age=${maxAge}; path=/; SameSite=Lax`;
+    window.location.reload();
   };
 
   if (hasConsent()) {
@@ -38,21 +47,28 @@
 
     if (banner && button) {
       banner.hidden = false;
-      button.addEventListener("click", () => {
-        const maxAge = 60 * 60 * 24 * 365;
-        document.cookie = `${COOKIE_NAME}=true; max-age=${maxAge}; path=/; SameSite=Lax`;
-        window.location.reload();
-      });
+      button.addEventListener("click", acceptCookies);
     }
+
+    // Fallbacks shown where consent-gated content would render (e.g. the
+    // Ivoox player), with their own accept button.
+    document
+      .querySelectorAll<HTMLElement>("[data-requires-cookie-refusal]")
+      .forEach((fallback) => {
+        fallback.hidden = false;
+      });
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-accept-cookies]")
+      .forEach((button) => button.addEventListener("click", acceptCookies));
   }
 </script>
 
 <style>
-  /* Same look as react-cookie-consent's default styles. */
+  /* Same look as the consent fallback box (see IvooxPlayer.astro). */
   .cookie-consent {
-    align-items: baseline;
-    background: #353535;
-    color: white;
+    align-items: center;
+    background: var(--color-dark);
+    color: var(--color-text);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -69,18 +85,19 @@
 
   .cookie-consent__content {
     flex: 1 0 300px;
-    margin: 15px;
+    margin: var(--space-sm);
   }
 
   .cookie-consent__button {
-    background-color: #00b473;
+    background-color: var(--color-primary);
     border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    color: black;
+    border-radius: var(--border-radius);
+    color: var(--color-dark);
     cursor: pointer;
+    font: inherit;
+    font-weight: var(--font-weight-bold);
     flex: 0 0 auto;
-    padding: 5px 10px;
-    margin: 15px;
+    padding: var(--space-xs) var(--space-sm);
+    margin: var(--space-sm);
   }
 </style>

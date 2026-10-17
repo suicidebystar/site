@@ -1,7 +1,38 @@
 @use "../../styles/mixins" as *;
 
 .post-card {
-  text-decoration: none;
+  position: relative;
+
+  // The title link stretches over the whole card via ::after, so the card
+  // stays one big click target while the audio player (z-index 200 in the
+  // image stack, raised to 300 below) keeps its own clicks on top of it.
+  .post-image__link {
+    color: inherit;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 250;
+    }
+
+    // The parent .card clips outlines with overflow: hidden and the image
+    // paints over them, so draw the focus ring on the stretched overlay.
+    &:focus-visible {
+      outline: none;
+
+      &::after {
+        border: 3px solid var(--color-primary-light);
+        border-radius: var(--border-radius);
+      }
+    }
+  }
+
+  .post-image__player {
+    position: relative;
+    z-index: 300;
+  }
 
   .post-image__title {
     transition: color 0.5s;

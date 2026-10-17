@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import logo from "@images/logo.png";
+import NewTabNote from "../NewTabNote/NewTabNote.astro";
 import "./header.scss";
 
 const sections = [
@@ -8,14 +9,21 @@ const sections = [
   { href: "/category/monograph/", label: "Monográficos" },
 ];
 const archiveUrl = "https://archivo.suicidebystar.sbs";
+
+// Prefix match so paginated category pages keep their section marked.
+const isCurrent = (href: string) =>
+  href === "/"
+    ? Astro.url.pathname === "/"
+    : Astro.url.pathname.startsWith(href);
+const ariaCurrent = (href: string) => (isCurrent(href) ? "page" : undefined);
 ---
 
-<nav class="header">
+<header class="header">
   <a href="/">
-    <h1 class="logo">
-      <Image src={logo} alt="logo" class="logo__image" loading="eager" />
+    <span class="logo">
+      <Image src={logo} alt="" class="logo__image" loading="eager" />
       Suicide<span class="logo__accent">By</span>Star
-    </h1>
+    </span>
   </a>
   <div class="header__menu-mobile">
     <div class="bm-overlay"></div>
@@ -23,23 +31,22 @@ const archiveUrl = "https://archivo.suicidebystar.sbs";
       <button
         type="button"
         class="bm-toggle"
+        aria-label="Abrir menú"
         aria-expanded="false"
         aria-controls="mobile-menu"
-      >
-        Open Menu
-      </button>
+      ></button>
       <span class="bm-burger-bars"></span>
       <span class="bm-burger-bars"></span>
       <span class="bm-burger-bars"></span>
     </div>
     <div id="mobile-menu" class="bm-menu-wrap" aria-hidden="true" inert>
       <div class="bm-menu">
-        <nav class="bm-item-list">
-          <a class="bm-item menu-item" href="/">
+        <nav class="bm-item-list" aria-label="Principal">
+          <a class="bm-item menu-item" href="/" aria-current={ariaCurrent("/")}>
             Inicio
           </a>
           {sections.map(({ href, label }) => (
-            <a class="bm-item menu-item" href={href}>
+            <a class="bm-item menu-item" href={href} aria-current={ariaCurrent(href)}>
               {label}
             </a>
           ))}
@@ -49,32 +56,35 @@ const archiveUrl = "https://archivo.suicidebystar.sbs";
             target="_blank"
             rel="noreferrer"
           >
-            Archivo
+            Archivo<NewTabNote />
           </a>
         </nav>
       </div>
       <div class="bm-cross-button">
-        <button type="button" class="bm-toggle">
-          Close Menu
-        </button>
+        <button type="button" class="bm-toggle" aria-label="Cerrar menú"
+        ></button>
         <span class="bm-cross"></span>
         <span class="bm-cross"></span>
       </div>
     </div>
   </div>
-  <div class="header__menu-large">
-    <ul>
+  <nav class="header__menu-large" aria-label="Principal">
+    <ul role="list">
       {sections.map(({ href, label }) => (
-        <a class="menu-item" href={href}>
-          {label}
-        </a>
+        <li>
+          <a class="menu-item" href={href} aria-current={ariaCurrent(href)}>
+            {label}
+          </a>
+        </li>
       ))}
-      <a class="menu-item" href={archiveUrl} target="_blank" rel="noreferrer">
-        Archivo
-      </a>
+      <li>
+        <a class="menu-item" href={archiveUrl} target="_blank" rel="noreferrer">
+          Archivo<NewTabNote />
+        </a>
+      </li>
     </ul>
-  </div>
-</nav>
+  </nav>
+</header>
 
 <script>
   // Replaces react-burger-menu (slide from the right).
@@ -85,11 +95,20 @@ const archiveUrl = "https://archivo.suicidebystar.sbs";
   );
 
   if (container && menu && openButton) {
+    const focusables = () =>
+      menu.querySelectorAll<HTMLElement>("a[href], button");
+
     const setOpen = (isOpen: boolean) => {
       container.classList.toggle("is-open", isOpen);
       openButton.setAttribute("aria-expanded", String(isOpen));
       menu.setAttribute("aria-hidden", String(!isOpen));
       menu.inert = !isOpen;
+      // The menu covers the page, so keyboard/screen reader focus follows it.
+      if (isOpen) {
+        focusables()[0]?.focus();
+      } else {
+        openButton.focus();
+      }
     };
 
     openButton.addEventListener("click", () => setOpen(true));
@@ -100,7 +119,24 @@ const archiveUrl = "https://archivo.suicidebystar.sbs";
       .querySelector(".bm-overlay")
       ?.addEventListener("click", () => setOpen(false));
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape" && container.classList.contains("is-open")) {
+        setOpen(false);
+      }
+    });
+
+    // Trap Tab inside the open menu, like a modal dialog.
+    menu.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab") return;
+      const items = focusables();
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
   }
 </script>

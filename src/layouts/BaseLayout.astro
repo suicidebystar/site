@@ -75,14 +75,15 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
       Single wrapper: global.scss makes <body> a horizontal flex container
       that centres its only child.
     */}
+    <a class="skip-link" href="#main">Saltar al contenido</a>
     <div class="site">
       <Header />
-      <main class="container">
+      <main id="main" class="container">
         <article>
           <slot />
         </article>
-        <Footer />
       </main>
+      <Footer />
     </div>
     <CookieConsent />
   </body>
