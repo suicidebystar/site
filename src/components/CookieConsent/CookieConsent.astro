@@ -64,11 +64,11 @@
 </script>
 
 <style>
-  /* Same look as react-cookie-consent's default styles. */
+  /* Same look as the consent fallback box (see IvooxPlayer.astro). */
   .cookie-consent {
-    align-items: baseline;
-    background: #353535;
-    color: white;
+    align-items: center;
+    background: var(--color-dark);
+    color: var(--color-text);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -85,18 +85,19 @@
 
   .cookie-consent__content {
     flex: 1 0 300px;
-    margin: 15px;
+    margin: var(--space-sm);
   }
 
   .cookie-consent__button {
-    background-color: #00b473;
+    background-color: var(--color-primary);
     border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    color: black;
+    border-radius: var(--border-radius);
+    color: var(--color-dark);
     cursor: pointer;
+    font: inherit;
+    font-weight: var(--font-weight-bold);
     flex: 0 0 auto;
-    padding: 5px 10px;
-    margin: 15px;
+    padding: var(--space-xs) var(--space-sm);
+    margin: var(--space-sm);
   }
 </style>
