@@ -88,6 +88,27 @@ a:visited {
   outline-offset: 2px;
 }
 
+// Hidden until focused via keyboard; first element in the tab order.
+.skip-link {
+  position: fixed;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: 2000;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-dark);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+
+  &:not(:focus) {
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0;
+  }
+}
+
 // Visually hidden, but exposed to assistive technology.
 .sr-only {
   position: absolute;
