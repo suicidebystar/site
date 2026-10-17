@@ -41,7 +41,7 @@ const socialImage = `/og/${post.data.path.replace(/^\/|\/$/g, "")}.png`;
   <Card>
     <section class="post">
       <section class="post__header">
-        <PostImage post={post} isBig priority class="post__image" />
+        <PostImage post={post} isBig priority headingLevel="h1" class="post__image" />
         <div class="post__player-wrapper">
           <IvooxPlayer id={ivoox} class="post__player" />
         </div>

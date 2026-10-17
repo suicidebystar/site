@@ -9,10 +9,18 @@ interface Props {
   isBig?: boolean;
   /** Eagerly load the image (use for above-the-fold images). */
   priority?: boolean;
+  /** Heading tag for the title; the post page passes "h1". */
+  headingLevel?: "h1" | "h2";
   class?: string;
 }
 
-const { post, isBig = false, priority = false, class: className } = Astro.props;
+const {
+  post,
+  isBig = false,
+  priority = false,
+  headingLevel: Heading = "h2",
+  class: className,
+} = Astro.props;
 const { featuredImage, title, audio } = post.data;
 const isAudioVisible = isBig && audio;
 
@@ -37,7 +45,7 @@ const sizes = isBig
       />
     </div>
     <section class="post-image__content">
-      <h2 class="post-image__title">{title}</h2>
+      <Heading class="post-image__title">{title}</Heading>
       {isAudioVisible && (
         <AudioPlayer audio={audio} class="post-image__player" />
       )}

@@ -88,6 +88,16 @@ a:visited {
   outline-offset: 2px;
 }
 
+// Visually hidden, but exposed to assistive technology.
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 p + p {
   margin-top: var(--space-sm);
 }
