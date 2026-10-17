@@ -1,16 +1,19 @@
 ---
 interface Props {
   id: string;
+  /** Episode title, used for the iframe's accessible name. */
+  title?: string;
   class?: string;
 }
 
-const { id, class: className } = Astro.props;
+const { id, title, class: className } = Astro.props;
 const url = `https://www.ivoox.com/player_ej_${id}_6_1.html`;
 ---
 
 {/*
   The iframe sets third-party cookies, so it is only injected once the visitor
-  has accepted them (see CookieConsent.astro).
+  has accepted them (see CookieConsent.astro). Until then the fallback below
+  explains why there is no player and offers to accept.
 */}
 <template data-requires-cookie-consent>
   <iframe
@@ -21,6 +24,33 @@ const url = `https://www.ivoox.com/player_ej_${id}_6_1.html`;
     height="200"
     style="width: 100%; border: 0"
     src={url}
-    title="Ivoox"
+    title={title ? `Reproductor de Ivoox: ${title}` : "Reproductor de Ivoox"}
   ></iframe>
 </template>
+<div class="ivoox-fallback" data-requires-cookie-refusal hidden>
+  <p>El reproductor de Ivoox necesita cookies de terceros.</p>
+  <button type="button" data-accept-cookies>Aceptar cookies y escuchar</button>
+</div>
+
+<style>
+  .ivoox-fallback:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-md);
+  }
+
+  .ivoox-fallback button {
+    background-color: var(--color-primary);
+    border: 0;
+    border-radius: var(--border-radius);
+    color: var(--color-dark);
+    cursor: pointer;
+    font: inherit;
+    font-weight: var(--font-weight-bold);
+    padding: var(--space-xs) var(--space-sm);
+  }
+</style>

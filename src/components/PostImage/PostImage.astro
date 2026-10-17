@@ -11,6 +11,11 @@ interface Props {
   priority?: boolean;
   /** Heading tag for the title; the post page passes "h1". */
   headingLevel?: "h1" | "h2";
+  /**
+   * Links the title to this URL. Cards stretch it over the whole card
+   * (see PostCard.scss) while the player keeps its own clicks.
+   */
+  href?: string;
   class?: string;
 }
 
@@ -19,6 +24,7 @@ const {
   isBig = false,
   priority = false,
   headingLevel: Heading = "h2",
+  href,
   class: className,
 } = Astro.props;
 const { featuredImage, title, audio } = post.data;
@@ -46,9 +52,11 @@ const sizes = isBig
       />
     </div>
     <section class="post-image__content">
-      <Heading class="post-image__title">{title}</Heading>
+      <Heading class="post-image__title">
+        {href ? <a class="post-image__link" href={href}>{title}</a> : title}
+      </Heading>
       {isAudioVisible && (
-        <AudioPlayer audio={audio} class="post-image__player" />
+        <AudioPlayer audio={audio} title={title} class="post-image__player" />
       )}
     </section>
     <span class="post-image__program">{getProgramName(post)}</span>

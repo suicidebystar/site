@@ -1,13 +1,20 @@
 ---
 interface Props {
   audio: string;
+  /** Episode title, used for the player's accessible name. */
+  title?: string;
   class?: string;
 }
 
-const { audio, class: className } = Astro.props;
+const { audio, title, class: className } = Astro.props;
 ---
 
-<audio controls preload="metadata" class={className}>
+<audio
+  controls
+  preload="metadata"
+  class={className}
+  aria-label={title ? `Escuchar: ${title}` : undefined}
+>
   <source src={audio} type="audio/mpeg" />
-  Your browser does not support the audio element.
+  Tu navegador no soporta el elemento de audio.
 </audio>

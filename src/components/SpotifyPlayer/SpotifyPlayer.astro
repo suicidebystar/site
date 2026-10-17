@@ -1,9 +1,11 @@
 ---
 interface Props {
   url: string;
+  /** Episode title, used for the iframe's accessible name. */
+  title?: string;
 }
 
-const { url } = Astro.props;
+const { url, title } = Astro.props;
 ---
 
 <iframe
@@ -13,5 +15,5 @@ const { url } = Astro.props;
   allow="encrypted-media"
   style="border: 0"
   loading="lazy"
-  title="Spotify"
+  title={title ? `Lista de Spotify: ${title}` : "Lista de Spotify"}
 ></iframe>

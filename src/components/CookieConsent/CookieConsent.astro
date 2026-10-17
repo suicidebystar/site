@@ -28,6 +28,15 @@
       .forEach((template) => {
         template.replaceWith(template.content.cloneNode(true));
       });
+    document
+      .querySelectorAll("[data-requires-cookie-refusal]")
+      .forEach((fallback) => fallback.remove());
+  };
+
+  const acceptCookies = () => {
+    const maxAge = 60 * 60 * 24 * 365;
+    document.cookie = `${COOKIE_NAME}=true; max-age=${maxAge}; path=/; SameSite=Lax`;
+    window.location.reload();
   };
 
   if (hasConsent()) {
@@ -38,12 +47,19 @@
 
     if (banner && button) {
       banner.hidden = false;
-      button.addEventListener("click", () => {
-        const maxAge = 60 * 60 * 24 * 365;
-        document.cookie = `${COOKIE_NAME}=true; max-age=${maxAge}; path=/; SameSite=Lax`;
-        window.location.reload();
-      });
+      button.addEventListener("click", acceptCookies);
     }
+
+    // Fallbacks shown where consent-gated content would render (e.g. the
+    // Ivoox player), with their own accept button.
+    document
+      .querySelectorAll<HTMLElement>("[data-requires-cookie-refusal]")
+      .forEach((fallback) => {
+        fallback.hidden = false;
+      });
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-accept-cookies]")
+      .forEach((button) => button.addEventListener("click", acceptCookies));
   }
 </script>
 
