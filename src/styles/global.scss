@@ -83,6 +83,11 @@ a:visited {
   color: var(--color-primary-light);
 }
 
+:focus-visible {
+  outline: 3px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
 p + p {
   margin-top: var(--space-sm);
 }

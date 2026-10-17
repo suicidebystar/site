@@ -1,7 +1,29 @@
 @use "../../styles/mixins" as *;
 
 .post-card {
+  // Inline links with block children render an invisible focus outline;
+  // the link must be a block for :focus-visible to show.
+  display: block;
   text-decoration: none;
+
+  position: relative;
+
+  // A regular outline is unusable here: the parent .card clips it with
+  // overflow: hidden and the z-index: 200 image paints over it, so draw
+  // the focus ring as an overlay above the card's content instead.
+  &:focus-visible {
+    outline: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 300;
+      border: 3px solid var(--color-primary-light);
+      border-radius: var(--border-radius);
+      pointer-events: none;
+    }
+  }
 
   .post-image__title {
     transition: color 0.5s;
