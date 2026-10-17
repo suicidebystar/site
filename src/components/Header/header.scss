@@ -152,6 +152,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
     margin-right: var(--space-md);
   }
 
+  ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
   .menu-item {
     margin-left: var(--space-sm);
     color: var(--color-text);
@@ -165,7 +174,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
     border: 0px solid var(--color-primary-light);
 
     &:hover,
-    &:focus-visible {
+    &:focus-visible,
+    &[aria-current="page"] {
       color: var(--color-primary-light);
       border-bottom-width: 3px;
     }

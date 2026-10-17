@@ -8,6 +8,13 @@ const sections = [
   { href: "/category/monograph/", label: "Monográficos" },
 ];
 const archiveUrl = "https://archivo.suicidebystar.sbs";
+
+// Prefix match so paginated category pages keep their section marked.
+const isCurrent = (href: string) =>
+  href === "/"
+    ? Astro.url.pathname === "/"
+    : Astro.url.pathname.startsWith(href);
+const ariaCurrent = (href: string) => (isCurrent(href) ? "page" : undefined);
 ---
 
 <header class="header">
@@ -34,11 +41,11 @@ const archiveUrl = "https://archivo.suicidebystar.sbs";
     <div id="mobile-menu" class="bm-menu-wrap" aria-hidden="true" inert>
       <div class="bm-menu">
         <nav class="bm-item-list" aria-label="Principal">
-          <a class="bm-item menu-item" href="/">
+          <a class="bm-item menu-item" href="/" aria-current={ariaCurrent("/")}>
             Inicio
           </a>
           {sections.map(({ href, label }) => (
-            <a class="bm-item menu-item" href={href}>
+            <a class="bm-item menu-item" href={href} aria-current={ariaCurrent(href)}>
               {label}
             </a>
           ))}
@@ -61,15 +68,19 @@ const archiveUrl = "https://archivo.suicidebystar.sbs";
     </div>
   </div>
   <nav class="header__menu-large" aria-label="Principal">
-    <ul>
+    <ul role="list">
       {sections.map(({ href, label }) => (
-        <a class="menu-item" href={href}>
-          {label}
-        </a>
+        <li>
+          <a class="menu-item" href={href} aria-current={ariaCurrent(href)}>
+            {label}
+          </a>
+        </li>
       ))}
-      <a class="menu-item" href={archiveUrl} target="_blank" rel="noreferrer">
-        Archivo
-      </a>
+      <li>
+        <a class="menu-item" href={archiveUrl} target="_blank" rel="noreferrer">
+          Archivo
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
