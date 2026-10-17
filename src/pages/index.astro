@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import logoTrve from "@images/logo-trve.png";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import NewTabNote from "../components/NewTabNote/NewTabNote.astro";
 import PostCard from "../components/PostCard/PostCard.astro";
 import PostList from "../components/PostList/PostList.astro";
 import SubscriptionWidget from "../components/SubscriptionWidget/SubscriptionWidget.astro";
@@ -34,7 +35,7 @@ const lastSession = posts.find((post) => post.data.category === "session");
           sizes="300px"
           class="logo__image"
         />
-        <strong>VISITA NUESTRA TIENDA</strong>
+        <strong>VISITA NUESTRA TIENDA<NewTabNote /></strong>
       </a>
     </section>
     <section class="home__featured">

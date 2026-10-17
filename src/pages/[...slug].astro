@@ -6,6 +6,7 @@ import Content from "../components/Content/Content.astro";
 import PostImage from "../components/PostImage/PostImage.astro";
 import IvooxPlayer from "../components/IvooxPlayer/IvooxPlayer.astro";
 import SpotifyPlayer from "../components/SpotifyPlayer/SpotifyPlayer.astro";
+import NewTabNote from "../components/NewTabNote/NewTabNote.astro";
 import SubscriptionWidget from "../components/SubscriptionWidget/SubscriptionWidget.astro";
 import AlbumList from "../components/AlbumList/AlbumList.astro";
 import AlbumItem from "../components/AlbumList/AlbumItem.astro";
@@ -43,7 +44,7 @@ const socialImage = `/og/${post.data.path.replace(/^\/|\/$/g, "")}.png`;
       <section class="post__header">
         <PostImage post={post} isBig priority headingLevel="h1" class="post__image" />
         <div class="post__player-wrapper">
-          <IvooxPlayer id={ivoox} class="post__player" />
+          <IvooxPlayer id={ivoox} title={post.data.title} class="post__player" />
         </div>
       </section>
       <section class="post__info">
@@ -60,13 +61,13 @@ const socialImage = `/og/${post.data.path.replace(/^\/|\/$/g, "")}.png`;
           target="_blank"
           rel="noreferrer"
         >
-          💬 Comenta en nuestro Telegram
+          💬 Comenta en nuestro Telegram<NewTabNote />
         </a>
       </section>
       <section class="post__bottom">
         {spotify && (
           <div class="post__playlist">
-            <SpotifyPlayer url={spotify} />
+            <SpotifyPlayer url={spotify} title={post.data.title} />
           </div>
         )}
       </section>

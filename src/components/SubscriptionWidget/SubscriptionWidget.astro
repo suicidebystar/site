@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import apple from "@images/podcast-badges/apple.png";
 import ivoox from "@images/podcast-badges/ivoox.png";
+import NewTabNote from "../NewTabNote/NewTabNote.astro";
 import "./SubscriptionWidget.scss";
 
 const buttons = [
@@ -21,7 +22,7 @@ const buttons = [
 <section class="subscription-widget">
   {buttons.map(({ src, href, alt }) => (
     <a target="_blank" rel="noreferrer" href={href}>
-      <Image src={src} alt={alt} />
+      <Image src={src} alt={alt} /><NewTabNote />
     </a>
   ))}
 </section>
