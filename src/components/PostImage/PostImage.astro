@@ -33,9 +33,10 @@ const sizes = isBig
 <div class={className}>
   <section class:list={["post-image", { "post-image--xl": isBig }]}>
     <div class="post-image__image">
+      {/* Decorative: the title is rendered right below as the heading. */}
       <Picture
         src={featuredImage}
-        alt={title}
+        alt=""
         formats={["avif", "webp"]}
         widths={widths}
         sizes={sizes}
